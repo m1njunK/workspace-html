@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>시멘틱 태그를 이용한 레이아웃 구성(유동형)</title>
+        <style>
+            /* 너비를 지정하는 속성인 width에 퍼센트(%) 또는 em 단위를 사용
+                모바일 기기에서도 비율에 따라 크기가 자동적으로 조절 된다. */
+            *{margin: 0; padding: 0;}
+            header{
+                background-color: pink;
+                height: 80px;
+            }
+            aside{
+                background-color: orange;
+                width: 25%;
+                height: 300px;
+                float: left;
+            }
+            main{
+                background-color: yellow;
+                width: 75%;
+                height: 300px;
+                float: left;
+            }
+            footer{
+                background-color: yellowgreen;
+                clear: both;
+                height: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>헤더</header>
+        <aside>사이드메뉴</aside>
+        <main>메인컨텐츠</main>
+        <footer>푸터</footer>
+    </body>
+</html>

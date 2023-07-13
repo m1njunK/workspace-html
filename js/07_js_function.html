@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS의 함수</title>
+    </head>
+    <body>
+        <h1>JS 특정 기능을 구현하도록 도와주는 함수-function</h1>
+        <script>
+        // 함수(function) - JS에서 특정 작업을 수행하도록 설계된 독립적인 블록
+        // 함수의 형태
+        /*
+            function 함수이름([매개변수]){
+                수행문;
+                [반환값이 있을때] return 반환값;
+            }
+        */
+        // 매개변수 : 함수를 호출할때 전달되는 변수, 함수 내부에서 사용할 수 있다.
+        // 반환값(반환문, return문) : 함수가 실행되고 결과를 호출한곳으로 되돌려주는 역할.
+        
+        let a = 1, b = 2;
+        let result = 0;
+        let result2 = 0;
+        // 매개변수(parameter, argument)와 반환값이 없는 함수
+            function add(){ //add함수 작성
+                result = a+b; //result변수에 a,b를 더해서 저장까지만.
+            }
+
+            add(); // 함수호출(실행)을 해줘야 함수가 실행이 된다.
+            console.log("add함수 호출 :",result);
+
+        // 매개변수는 없고, 반환값은 있는 함수
+
+            function add1(){
+                // result = a+b;
+                return a+b; //a,b가 더해져 저장된 변수 result를 호출한 곳으로 되돌려 준다.
+            }
+
+            console.log("add1함수 호출 :",add1());
+        // 매개변수는 있고, 반환값은 없는 함수
+
+            function add2(x,y){ // add2함수가 호출이 될때 매개변수 x,y라는 이름으로 데이터를 전달 받는다.
+                console.log(`x의 값 : ${x}, y의 값은 : ${y}`)
+                result2 = x+y; // 매개변수로 전달받은 x,y를 더해서 result2 변수에 저장하고 할 일 끝.
+            }
+
+            add2(a,b); //함수add2를 매개변수를 설정하고 호출한다.
+            console.log(result2);
+        // 매개변수,반환값 둘다 있는 함수
+            function add3(i,z){ // 함수 add3은 매개변수 i,z를 전달 받아서
+                return i+z;     // i+z의 결과값을 add3함수를 호출한 곳을 반환 해준다.
+            }
+            console.log(add3(a,b));
+
+        // 리턴이 있는 함수들은 결과값을 되돌려 받기 때문에 변수에 저장하는 형태로 호출이 가능
+            let add4 = add3(a,b);
+            console.log(add4);
+        
+        // 함수도 {}(scope)를 가지고 있기 때문에, 지역변수, 전역변수가 구분되어 사용된다.
+            function localVal(){
+                let local = 0;
+                console.log("함수 내부에서 출력 :",local);         
+            }
+            localVal(); // 함수를 반드시 호출을 해줘야 실행이된다.
+            // console.log("함수 바깥에서 출력 :",local);
+            // -> 지역변수는 해당 scope를 벗어나면 사용이 불가능 하다.
+
+            // 구구단을 생성해주는 함수를 만들어봅시다.
+            // 2단만 만들어주는 구구단
+            
+            function g2(){
+                for(i=1;i<10;i++){
+                    console.log(`2 X ${i} = ${2*i}`);
+                }
+            }
+            g2();
+
+            // 특정 단수를 만들어주는 구구단
+
+            function ggd(X){
+                for(i=1;i<10;i++){ 
+                        console.log(`${X} X ${i} X ${X*i}`);
+                }
+            }
+            ggd(5);
+
+            // 특정 범위의 단수를 만들어 주는 구구단 (2~4)
+
+            // function ggd2(x,y){
+            //     console.log("특정 범위 단수 실행")
+            //     for(i=x;i<=y;i++){ 
+            //         console.log(`======${i}단 실행======`);
+            //         for(z=1;z<10;z++)
+            //         {
+            //             console.log(`${i} X ${z} X ${i*z}`);
+            //         }
+            //     }
+            // }
+            // ggd2(5,7);
+
+            // function ggd3(x,y){
+            //     console.log("특정 범위 단수 실행")
+            //     for(i=x;i>=y;i--){ 
+            //         console.log(`======${i}단 실행======`);
+            //         for(z=1;z<10;z++)
+            //         {
+            //             console.log(`${i} X ${z} X ${i*z}`);
+            //         }
+            //     }
+            // }
+            // ggd3(7,5);
+
+            function ggd4(x,y){
+                console.log("특정 범위 단수 실행")
+                if(x>y){
+                for(i=x;i>=y;i--){ 
+                    console.log(`======${i}단 실행======`);
+                    for(z=1;z<10;z++)
+                    {
+                        console.log(`${i} X ${z} X ${i*z}`);
+                    }
+                }
+                }
+                else{
+                for(i=x;i<=y;i++){ 
+                    console.log(`======${i}단 실행======`);
+                    for(z=1;z<10;z++)
+                    {
+                        console.log(`${i} X ${z} X ${i*z}`);
+                    }
+                }
+                }
+            }
+            ggd4(5,8);
+
+            let ggd_result = "";
+
+                function ggd2(x,y)
+            {
+                // console.log("특정 범위 단수 실행")
+                ggd_result = "특정 범위 단수 실행\n";
+                for(i=x;i<=y;i++){ 
+
+                    ggd_result += `======${i}단 실행======\n`;
+                    for(z=1;z<10;z++)
+                    {
+                        // console.log(`${i} X ${z} X ${i*z}`);
+                        ggd_result += `${i} X ${z} X ${i*z}\n`;
+                    }
+                }
+
+                return ggd_result;
+            }
+
+            let _result = ggd2(5,7);
+            console.log(_result);
+
+        // arguments 객체
+        // 함수의 정의보다 더 많은 매개변수를 전달 받을때,
+        // 매개변수에 대입되지 못한 데이터들을 사용 할 수 있다.
+        // 배열과 흡사한 구조를 가지고 있다.(거의 배열이라고 봐도 무방함.)
+        // 그런데 타입은 배열이 아님..
+
+        function add5(){
+            console.log(arguments);
+            let sum = 0;
+            for(i=0;i<arguments.length;i++)
+            {
+                sum += arguments[i];
+            }
+            console.log("arguments를 이용한 매개변수 누적합 :",sum);
+        }
+
+        add5(4,7,8,4);
+
+    </script>
+    </body>
+</html>

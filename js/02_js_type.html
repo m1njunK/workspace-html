@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS의 타입</title>
+    </head>
+    <body>
+        <h1>자바스크립트의 타입</h1>
+        <script>
+        // JS의 타입 : 두가지
+        // 1.기본타입 : 더이상 나누어지지 않는 하나의 값
+        /*
+            - 숫자(number)
+            - 문자열(string)
+            - 불리언(boolean)
+            - null
+            - undefined
+        */
+        
+        // 숫자타입 : 우리가 알고있는 숫자를 다루는 타입이다.
+            let age = 40; //쌍따옴표 없이 숫자로만 표기를 하면 숫자타입이 된다.
+            let num1 = 4.4; // 변수 num1에는 4.4 라는 실수가 저장되있다.
+        
+            // 변수키워드는 아무거나 선택
+            // 변수명은 endTime
+            // 저장할값은 마치는 시간(1630)을 저장 해봅시다.
+            let endTime = 1630;
+            // 숫자의 연산
+            let endTime2 = 1+2;
+            console.log("endTime2 :",endTime2 );
+
+        // 문자타입 : JS에서 문자열은 큰따옴표("") 혹은, 작은따옴표('')로 둘러쌓인 문자의 집합
+            let name = "김민준"; 
+            //자바나 기타 타입이 세부적으로 나누어진 언어에서는 ""를 문자열로 인식하기 때문에
+            //""를 사용하여 문자열표기를 습관화 해주면 편리함.
+            let firstName = '김';
+            let lastName = '민준';
+            // 문자타입의 연산
+            let fullName = '김' + '민준';
+            console.log("fullName :",fullName);
+
+            // 숫자타입과 문자타입의 +연산
+                let ex1 = 20 + '30';
+                console.log("숫자 + 문자 :",ex1); //숫자와 문자열을 더하게 되면 문자열이 된다.
+
+            let endTime3 = 16 + ":" + 30;
+            // let endTime3 = "16:30";
+            // let endTime3 = "16:" + 30;
+            // let endTime3 = 16 + ':30';
+            console.log(endTime3); // 출력을 했을때 16:30 이라고 출력되도록 소스코드를 작성해봅시다.
+
+            let strNum = "10" , num2 = 10;
+            // strNum에는 문자10이 저장되어있고, 1이라는 문자와 0이라는 문자로 이루어진 문자열
+            // num2 = 숫자 10이 저장되어 있다. 단순 숫자
+
+
+        // 불리언타입(true, false)
+            // 참(true) 과 거짓(false) 두가지 값을 표현
+            let isShow = true; //true와 false 중에 하나를 ""('')로 묶지 않고 그냥 표현한다.
+            isShow = false;
+
+            let isTrue = 3 > 1; //참
+            console.log(isTrue);
+            // 주로 조건문에서 자주 사용된다.
+
+        // null 과 undefined
+            // null 과 undefined는 값이 없다는 뜻
+            // == : 값을 비교하는 연산자
+            console.log("null과 undefined의 값 비교 :",null == undefined);
+            // null 과 undefined의 값과 타입까지 비교
+            // === : 값과 타입까지 비교하는 연산자
+            console.log("null과 undefined의 값 비교 :",null === undefined);
+
+        // 타입을 확인하는 연산자
+            //사용방법 : typeof 변수명(값)
+            console.log("--------------타입체크--------------");
+            console.log(typeof num1);
+            console.log(typeof name);
+            console.log(typeof isShow);
+            console.log(typeof null);
+            console.log(typeof undifined);
+
+        // 문자열템플릿 : 문자열안에서 변수명이나 표현식을 자유롭게 표현하기 위한 수단
+            console.log("--------------문자열템플릿-----------");
+            console.log("(문자열템플릿 사용x)isShow의 값은 : "+isShow);
+            console.log(`(문자열템플릿 사용o)isShow의 값은 : ${isShow}`);
+            // 문자열 템플릿 사용하는 방법
+            // 키보드의 1왼쪽에 있는 따옴표(``)를 이용한다.
+            // `${변수명(or 표현식)}`
+            let strTemp1 = `안녕하세요 제 이름은 ${name} 입니다.`;
+            console.log(strTemp1);
+
+            let strTemp2 = `개인정보처리 방침 동의 여부 : ${true} 입니다.`;
+            console.log(strTemp2);
+
+            let strTemp3 = `3은 1보다 크다 : ${ 3>1 } 입니다.`;
+            console.log(strTemp3);
+
+            let = strTemp4 = `3 + 1 : ${ 3+1 } 입니다.`;
+            console.log(strTemp4);
+            
+            //16:30표현은 문자열템플릿을 활용하여 출력
+            console.log(`${16}:30`);
+            console.log(`${16}:${30}`);
+
+        // 2.참조타입 : 기본타입들을 하나의 단위로 묶어서 관리
+        /*
+            -객체(object)
+            -배열(array)
+            -클래스(class)
+        */ 
+
+        // 객체
+            // 기본타입의 부모이기도 하다.
+            // 여러가지 기본타입 혹은 참조타입 등을 묶어놓은 일종의 집합체
+            // js에서 객체를 표현할때 : {}를 사용한다.
+            // 객체 안에서 속성을 추가하는 방법
+            // { 속성명1(변수명1) : 값1, 속성명2(변수명2) : 값2 }
+            let dog = { name:"로즈", age:4, family:"포메라니안", isLive:true };
+            // dog객체를 이용하여 dog객체 안에 포함된 값을 이용하는 방법.
+            // dog객체의 name 값을 출력 해보자.
+            // 객체명(변수명).속성명(변수명) -> .을 기준으로 객체 안에있는 데이터를 이용할 수 있다.    
+            console.log(dog.name);
+
+            // dog객체를 이용하여 다음과 같이 출력해봅시다.
+            // 출력할 내용 : 이름은 로즈이고, 나이는 4살입니다. 로즈는 포메라니안 입니다.
+            console.log(`이름은 ${dog.name}이고, 나이는 ${dog.age}살입니다. ${dog.name}는 ${dog.family} 입니다.`);
+            console.log("이름은 "+dog.name+"이고, 나이는 "+dog.age+"살입니다. "+ dog.name +"는 " + dog.family +" 입니다.");
+            // console.log("이름은",dog.name,"이고, 나이는",dog.age,"살입니다.",dog.name,"는",dog.family,"입니다.");
+        
+            console.log(dog.name,dog.age,dog.family,dog.isLive);
+            console.log(dog.name+dog.age+dog .family+dog.isLive);
+            console.log(`${dog.name}${dog.age}${dog.family}${dog.isLive}`);
+            console.log(`이름은 ${dog.name}이고, 나이는 ${dog.age}살입니다. ${dog.name}는 ${dog.family}입니다.`);
+       
+        // 배열
+            // []를 이용하여 표현
+            // 변수나, 값의 집합체
+            // 사용예시 : let numbers = [1,2,3,4,5]; 
+            // 변수는 인덱스값(순서값) 을 갖는다. 인덱스값은 0부터 시작.
+            
+        // 클래스
+            // class 키워드로 선언을 해서 생성
+            // 변수선언, 함수선언, 배열선언 등등 을 할 수 있다. 
+            // 생성자를 갖을 수 있다.
+
+            // Human클래스
+            // class Human //생성자.(클래스 객체가 생성될때 자동적으로 실행되는 영역)
+            // {
+            //     constructor()
+            //     { // 생성자.
+            //         let name="홍길동";
+            //         let age=0;
+            //     }
+
+            //     get name()
+            //     {
+            //         return this.name;
+            //     }
+
+            //     get age()
+            //     {
+            //         return this.age;
+            //     }
+            // }
+
+            // let human1 = new Human(); // Human클래스를 이용하여 객체생성
+            // console.log(human1.name);
+            // console.log(human1.age);
+
+            //타입 변환
+            // JS에서는 타입검사가 엄격하지 않아서, 타입간의 변화도 유연하게 할 수 있다.
+            let num = 20; // 변수 num은 타입이 number이고, 값은 20이 저장되어있다.
+            num = "20"; //변수 num에 문자열 20을 재할당.
+
+            // 묵시적 타입변환
+            // 문자열과 숫자를 연산할때 + 는 문자열로 만들어주고,
+            // * , / , - 는 산술연산을 해준다.(단, 문자열이 숫자로 변환가능한 상태일때.)
+            console.log( 10 * "2" );
+
+            // 명시적 타입변환
+                // 특정 타입으로 변환을 하겠다.
+                // Number() , String() , Boolean() , Object()
+                let ten = Number("10");
+                console.log(typeof ten);
+
+                console.log(Boolean(1));
+                // boolean타입을 숫자로 변환하면
+                // 1 : true
+                // 0 : false
+
+                // 날짜를 문자열이나 숫자로 변환
+                let date = new Date(); // Date클래스를 객체로 생성
+                // 클래스를 객체로 생성시 규칙 : let(const) 변수명 = new 클래스명();
+                console.log(date.getDate()); // 날짜를 숫자로 반환
+                console.log(date.getFullYear()); // 연도를 숫자로 반환
+                console.log(date.getMonth()+1); //월을 숫자로 반환(0~11)까지 반환
+
+                // console.log()를 활용하여
+                // 2023-03-28을 출력하도록 작성해봅시다.
+
+                let today = new Date()
+                console.log(`${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`);
+                console.log(today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate()); 
+                
+                // toString() 특정변수나 값을 문자열로 변환시켜주는 함수
+                console.log(today.getFullYear().toString());
+                
+                let isTrue1 = true;
+                console.log(typeof isTrue1.toString());
+
+                // Number()외에 문자열을 숫자로 변환 시켜주는 함수
+                // parseInt() : 문자열을 정수로 변환
+                // parserFloat() : 문자열을 소수점으로 변환
+
+                console.log(parseInt("6.5"));
+                console.log(parseInt("06"));
+                console.log(parseFloat("6.5"));
+                console.log(parseFloat("6.0"));
+
+                // 변수선언시 var와 let(const)의 차이점
+                // scope(블록, 영역) - js가 실행이 되는 영역
+                // 전역변수 - 전역으로 사용이 가능한 변수
+                // 지역변수 - 부분부분 scope에서 사용이 가능한 변수
+                let global = "전역변수";
+                // var global2 = "전역변수2";
+                {   // 지역 scope를 표현
+                    let local = "지역변수"; // 해당하는 지역scope내부에서만 사용가능
+                    // var local2 = "지역변수2";
+                    console.log(global1);
+                    console.log(local1);
+                }
+                console.log(global1);
+                console.log(local1); // 출력이 안될것
+
+    </script>
+    </body>
+</html>

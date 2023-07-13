@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS의 DOM조작</title>
+</head>
+<body>
+    <p></p>
+    <p id="secondP"></p>
+    <script>
+        // js를 활용한 DOM조작(html 조작)
+        // dom : document object model
+        // document객체와 관련된 집합
+        // JS로 HTML의 태그 요소들을 이용할 수 있도록 객체로 만든것.
+        console.log(document.head); //document객체의 head 프로퍼티를 조회
+        console.log(document.title);
+
+        // js에서 태그요소를 선택하기 위한 함수
+        // html안에 있는 모든 p태그를 배열형태로 가져온다.
+
+        let pTag = document.getElementsByTagName("p");
+        console.log("pTag :",pTag);
+        for(i=0;i<pTag.length;i++){
+            pTag[i].innerText = "html 조작";
+        }
+
+        // 특정 아이디값을 가지는 html요소에 접근하는 함수
+        let secondP = document.getElementById("secondP");
+        console.log(secondP);
+        secondP.innerText = "아이디값을 조회하여 수정";
+
+        // html에 요소를 생성하는 방법 - 1번
+        // innerHTML로 작성하면 새롭게 페이지를 작성한다.
+        // document.body.innerHTML = `<h1>첫번째 HTML 요소 생성</h1>`;
+
+        // html에 요소를 생성하는 방법 - 2번
+        // document.crateElement('태그명'); - 특정 태그를 생성해준다.
+        let h1 = document.createElement('h1'); // 특정 태그 생성
+        h1.innerText = "두번째 HTML요소 생성"; // 태그의 텍스트를 추가 (수정);
+        document.body.appendChild(h1); // body태그에 h1태그가 추가된다.
+
+        // html에 요소를 생성하는 방법 - 3번
+        // document.write('문자열') - 그냥 문자열 자체를 추가해준다.
+        // document.wirte('<태그>문자열</태그>') - 특정태그도 같이 생성해서 추가해준다.
+        document.write('<h3>3번째 HTML요소 추가</h3>');
+        // 구구단을 html에 생성 해봅시다.
+        /*
+            ------2단 시작------
+            2 X 1 = 2
+            2 X 2 = 4
+            .
+            .
+            .
+            9단까지 출력
+        */
+        
+        let x = '';
+
+        for(i=2;i<10;i++){
+            x += `<h3>------${i}단 실행------</h3>`;
+            for(j=1;j<10;j++){
+                x += `<p>${i} X ${j} = ${i*j}</p>`;
+            }
+        }
+        document.write(x);
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+main{
+    text-align: center;
+    background-color: snow;
+}
+
+#join_tittle{
+    padding: 100px 0;
+}
+
+#join_box{
+    border: solid 1px gray;
+    border-radius: 2%;
+    margin: 0 35%;
+}
+
+.join_form li span{
+    display: inline-block;
+    width: 80px;
+}
+
+#join_box *{
+    text-align: left;
+    padding: 10px;
+}
+
+#join_btn{
+    padding: 50px 200px 50px 0;
+}
+
+#join_btn *{
+    margin: 0 20px;
+}
+
+#join_btn input{
+    border: 1px solid rgb(255, 94, 0);
+    width: 120px;
+    height: 50px;
+    color: white;
+    background-color: rgb(255, 94, 0);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#join_btn a{
+    position: absolute;
+    border: solid 1px black;
+    width: 118px;
+    padding: 14px 0 14px 0;
+    font-size: 15px;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+}
+
+@media screen and (max-width:680px)
+{
+    #join_box{
+        margin: 0;
+    }
+
+    .join_form li{width: 60%;}
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, 
+    itial-scale=1.0">
+    <title>CSS개요</title>
+    <style>
+        /* 내부 스타일 시트 적용 */
+        /* 태그 선택자 */
+        p{color: red;}
+        /* id 선택자 */
+        #blue{color: blue;}
+        .bold{font-weight: bold;}
+        /* class 선택자 */
+        .green{color: green;}
+        .text-size-50{font-size: 50px;}
+        ul li{color:violet}
+        /* 다중 조건 선택자 연습 - and연산 */
+        div#m_box{width: 250px;height: 150px;border: solid 1px red;}
+        div.box{background-color: blue;}
+        /* 다중 조건 선택자 연습 - or연산 */
+        span,.box{background-color: green;}
+        /* 가상(추상) 클래스 선택자 연습 */
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color:skyblue;
+            font-weight: bold;
+            font-style: italic;
+        }
+        ul li:first-child{
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+    <!-- 외부 스타일 시트 적용하는 방법 -->
+    <link rel="stylesheet" type="text/css" href="./myCss.css">
+</head>
+<body>
+    <h1 class="green bold">HTML을 꾸며주는 CSS</h1>
+    <ul>
+        <li>Cascading Stlye Sheet의 약자</li>
+        <li>HTML 문서의 스타일(디자인)을 지정하는데 사용하는 언어</li>
+        <li>한번에 여러 웹페이지의 디자인 제어 가능</li>
+    </ul>
+    <h3>CSS의 기본구조</h3>
+    선택자 {css속성:값;}
+    <br>
+    p{color:blue;}
+    <br>
+    <h3>선택자 : css를 적용할 영역을 선택할때 사용</h3>
+    * 선택자의 종류 : 태그, id, calss 선택자 <br>
+    <ul>
+        <li>태그 선택자 : 태그이름 그대로 사용</li>
+            <ul>
+                <li>ex : h1{속성:값;}<br>
+                    이때, 해당 html에 있는 전체 h1태그에 같은 css가 적용된다.
+                </li> <br>
+            </ul>
+        <li>id 선택자 : 특정태그에 id속성이 부여가 된 상태에서 #id이름값으로 선택</li>
+        <ul>
+            <li>ex : #idSelect{속성:값;}<br>
+                이때, 해당 html에는 id속성이 idSelect 인  태그에 css가 적용된다.<br>
+                id 속성은 해당 html페이지에서 똑같은 id값은 중복으로 사용 불가능.<br>
+                또한, 하나의 태그에는 하나의 id값만 존재(단일 선택)    
+            </li>
+        </ul> <br>
+        <li>class 선택자 : 특정태그에 class속성이 부여가 된 상태에서 .class이름값 으로 선택</li>
+        <ul>
+            <li>ex : .classSelect{속성:값;}<br>
+                이때, 해당 html에는 class속성이 classSelect인 태그에 css가 적용된다.<br>
+                class 속성은 해당 html페이지에서 여러개가 중복으로 사용 가능<br>
+                또한, 하나의 태그에는 여러개의 class값이 존재가능 (다중 선택)
+            </li>
+        </ul>
+        </li>
+    </ul>
+    <p>태그 선택자 연습</p>
+    <p id="blue">id 선택자 연습</p>
+    <!-- p#blue{ } -->
+    <p class="green">class 선택자 연습</p>
+    <br>
+    <h3>그외의 선택자</h3>
+    <ul>
+        <li>부모 자식 선택자
+            <ul>
+                <li>부모선택자 자식선택자{속성:값;}</li>
+                <li>ex : ul li { color : red; }</li>
+            </ul>
+        </li>
+        <li>
+            다중 조건 선택자
+            <ul>
+                <li>특정 조건을 만족하는 선택자에 css를 적용</li>
+                <li>and 연산 (두가지의 조건이 일치하는경우 - 공백제거):태그이름#아이디{ 속성1:속성값; 속성2:값; }<br>
+                    태그이름.클래스명{속성:값;}
+                    .클래스명#아이디{속성:값;}</li>
+
+                <li>or 연산 (두가지 선택자중 하나라도 만족시 적용-콤마) : 태그이름,#아이디{속성:값;}<br>
+                    태그이름,.클래스명{속성:값;}<br>
+                    .클래스명,#아이디{속성:값;}<br>
+                </li>
+            </ul>
+        </li>
+        <li>가상 클래스 선택자
+            <ul>
+                <li>선택자 뒤에  : 가상이벤트 를 붙이면 특정 이벤트마다 적용할 스타일을 설정할수있고,
+                    이를 가상(추상)클래스 라고 한다.
+                </li>
+                <ul>
+                    <li>:link - 방문한적이 없는 링크(a태그 등)</li>
+                    <li>:visited - 방문한적이 있는 링크(a태그 등)</li>
+                    <li>:hover - 마우스오버 했을때</li>
+                    <li>:active - 마우스를 클릭했을때</li>
+                    <li>:focus - 포커싱 되었을때 (input 태그 등)</li>
+                    <li>:first-child - 첫번째 자식</li>
+                    <li>:last-child - 마지막 자식</li>
+                    
+                </ul>
+            </ul>
+        </li>
+    </ul>
+    <!-- 다중 조건 선택자 연습 - and연산 -->
+    <div id="m_box">m_box 아이디의 div 입니다.</div>
+    <div class="box">box 클래스의 div 입니다.</div>
+    <!-- 다중 조건 선택자 연습 - or연산 -->
+    <span id="m_box">m_box 아이디의 span 입니다.</span>
+    <span class="box">box 클래스의 span 입니다.</span> <br>
+    <!-- 가상(추상)클래스 선택자 연습 -->
+    <a href="../home.html">홈화면으로 이동</a>
+    <h3>css적용 우선순위</h3>
+    <ol>
+        <li>속성값 뒤에 !important 를 붙힌 속성</li>
+        <ul>
+            <li>우선순위를 무시하고, 꼭 적용 시키고 싶은 속성이 있다면,
+                속성값 뒤에 !important를 붙여서 적용 시켜주면 된다.
+            </li>
+        </ul>
+        <li>HTML태그에 stlye속성을 직접 지정한 속성(인라인 스타일)</li>
+        <li>#id로 지정한 속성(id선택자)</li>
+        <li>.클래스 , :가상클래스로 지정한 속성</li>
+        <li>태그 선택자 로 지정한 속성</li>
+        <li>상위 객체에 의해 상속된 속성</li>
+    </ol>
+    <h3>css 삽입 방법</h3>
+    <ul>
+        <li style="color:coral;">인라인 스타일 : HTML태그에 stlye속성을 직접 부여하는 방법</li>
+        <li class="ddd">내부 스타일 시트 : HTML문서에 stlye태그를 삽입하여 작성</li>
+        <li id="myStyle">외부 스타일 시트 : 별도의 css파일을 만들어 HTML에서 파일을 참조하는 방식</li>
+    </ul>
+</body>
+</html>

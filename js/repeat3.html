@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 제어문 - 반복문
+        // while문
+        // let i = 0;
+        // while( i < 10 ){ // 조건이 false 혹은 소스코드 내부에서 break를 걸지 않으면 무한루프
+            
+        //     // while문의 조건을 false로 바꿀 수 있는 경우 아래와 같이 작성가능.
+        //     //i = i + 1; // 반복문이 수행이 될때마다, 위의 조건을 체크하고 수행을 거치기 때문에
+            
+        //     // 특정 조건일때 break를 걸도록 작성해준다.
+        //     // while문의 조건이 true일 경우에는 break문을 사용해서 프로그램을 종료 해주자.
+        //     break;
+        // }
+
+        // // do-while문 - while문과 비슷하나 무조건 한번은 수행문이 실행된다는 차이점이 있다.
+        // do{
+        //     // 일단 한번 실행 후 아래의 조건을 체크한다음 조건이 true이면 반복 실행
+        //     i = i + 1;
+        // }while(i<5); // while문과 마찬가지로 무한루프에 빠지지 않도록 주의!
+
+
+        // // for문 - 정해진 횟수가 있어서 무한루프에 빠지지 않는다는 장점
+        // for(let i=1;1<=6;i++){ 
+        //     // 1~6까지의 범위설정, 증감식을 설정해서 i가 1씩 증가하도록 설정
+        //     // i가 1~6까지 반복이 되고, 종료가된다.
+        // }
+
+        let str = "가나다"
+        for(let i in str){ 
+            // 순회가 가능한 데이터 타입에서 사용하면 해당 데이터의 index값을
+            // 변수 i를 통해 얻을 수 있다.
+            console.log(i); // 0 1 2
+        }
+
+        for(let i of str){
+            // 순회가 가능한 데이터 타입에서 사용하면 해당 데이터의 value값을
+            // 변수 i를 통해 얻을 수 있다.
+            console.log(i); // 가 나 다
+        }
+
+       
+
+    </script>
+</body>
+</html>

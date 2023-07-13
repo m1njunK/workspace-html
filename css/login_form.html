@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>로그인 페이지</title>
+        <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul{
+            list-style-type: none;
+        }
+
+        body{
+            font-size: 16px;
+            color:#444444;
+            /* rgb(0, 0, 0) */
+        }
+
+        #login_box{
+            width: 260px;
+            height: 140px;
+            border: solid 1px #bbbbbb;
+            border-radius: 15px;
+            margin: 10px 0 0 10px;
+            /* 기존 padding속성은 왼쪽정렬을 위한 설정 이므로, 가운데 정렬을 할때는
+                패딩속성을 없애거나, 패딩속성을 4방향 모두 균일하게 주는것이 가운데 정렬할때는
+                좋음. */
+            /* padding: 10px 0 0 15px; */
+            text-align: center;
+        }
+
+        h2{
+            margin-bottom:10px;
+        }
+
+        #login_box input{
+            margin-left: 10px;
+            width: 100px;
+            height: 18px;
+        }
+
+        #id_pass, #login_btn {
+            display: inline-block;
+            vertical-align: top;
+            /* vertical-align : 수직방향에서 정렬할때 주로 사용
+                inline이나 inline-block 일때 적용 */
+        }
+
+        #id_pass span{
+            display:inline-block;
+            width: 20px;
+        }
+
+        #pass{
+            margin-top: 3px;
+        }
+
+        #login_btn button{
+            margin-left: 10px;
+            margin-top: 3px;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 2px 2px 2px 0px #4f4c4c;
+            background-color: #bbbbbb;
+            font-weight: bold;
+        }
+        /* 그림자 주기,테두리 없애기, 로그인 글자 굵게, 로그인 버튼 색상 어둡게 */
+
+        #btns{
+            margin: 12px 0 0 -10px;
+            text-decoration: underline;
+        }
+
+        #btns li{
+            margin-left: 10px;
+            display: inline;
+        }
+    </style>
+    </head>
+    <body>
+        <!-- 실제 로그인form처럼 만들어주기 
+            실제 로그인기능 구현시 method의 타입은 post로 한다.
+            method가 get방식일때는
+                파라미터(서버측에 전달하는 데이터)가
+                주소(url)에 전부 보여지기 때문에 보안상 사용하지 않는다.
+                주로 사용되는 기능 : 단순 페이지 이동시, 게시글 상세보기 등
+            method가 post방식일때
+                파라미터(서버측에 전달하는 데이터)가
+                주소(url)에 표시 되지않는다. 보안상 유리함.
+                주로 사용되는 기능 : login, 회원가입 기능 등-->
+        <form action="../home.html" method="get">
+            <div id="login_box">
+                <h2>Member Login</h2>
+                <ul id="input_button">
+                    <li id="id_pass">
+                        <ul>
+                            <li>
+                                <span>ID</span>
+                                <!-- 파라미터(서버에 전달되는 데이터)를 정의할때
+                                    전달할 태그에 name 속성을 부여한다. 
+                                파라미터는 url상에서 확인 가능
+                                (mthod가 get방식일때만 가능)
+                                ex) http://localhost:5500/home.hrml?userId=rla&userPw=1234
+                                    이 주소에서 파라미터는 ?뒤에오는 userId와 userPw이다.
+                                    파라미터가 여러개일경우에는 &로 구분한다.-->
+                                
+                                <input type="text" name="userId">
+                            </li> <!-- id -->
+                            <li id="pass">
+                                <span>PW</span>
+                                <input type="password" name="userPw">
+                            </li> <!-- pass -->
+                        </ul>
+                    </li>
+                    <li id="login_btn">
+                        <button type="submit">로그인</button>
+                    </li>
+                </ul>
+                <ul id="btns">
+                    <li><a href="./">회원 가입</a></li>
+                    <li><a href="./">아이디/비밀번호 찾기</a></li>
+                </ul>
+            </div> <!-- login_box-->
+        </form>
+    </body>
+</html>

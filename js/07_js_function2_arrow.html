@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS의 화살표함수, 콜백함수</title>
+    </head>
+    <body>
+        <h1> => 표현식으르 사용하여 함수를 작성하는 방법</h1>
+        <script>
+            // 일반적인 함수의 형태
+            function simplePrint(){
+                console.log('simplePrint_1');
+            }
+            simplePrint();
+
+            // 함수를 변수화 - 함수를 익명화 하여 변수에 저장한다.
+            const simplePrint2 = function(){
+                console.log('simplePrint_2');
+            }
+            simplePrint2();
+
+            // 화살표 함수를 사용한 작성 - 항상 익명함수로 작성된다.
+            // 변수 = () => { 수행문; }
+            const simplePrint3 = () => {
+                console.log('simplePrint_3');
+            }
+            // 화살표 함수를 호출(사용)하는 방법은 일반함수와 동일.
+            simplePrint3();
+
+            // 화살표함수를 사용하는 대표예시
+            let arr = [1,2,3,4,5];
+            // filter함수를 일반 익명 함수로 작성
+            let arr2 = arr.filter(function(num){
+                console.log('num :', num);
+                return num % 2 == 0;
+            });
+
+            console.log(arr2);
+
+            // 화살표 함수로 작성하는 방법
+            let arr3 = arr.filter((num)=>{
+                return num % 2 == 1;
+            });
+            console.log(arr3);
+            // 파라미터가 1개인경우에 ()를 생략 가능
+        </script>
+
+        <h1>콜백(callback)함수</h1>
+        <button onclick="stop()">interval 멈춤</button>
+        <script>
+            // 특정 시점에 호출되는 함수
+            // 일반적으로 함수의 매개변수로 전달하도록 설계
+
+            // 대표적인 콜백함수 : setTimeout(), setinterval() 함수
+            // setTimeout함수 : 특정시간 이후에 한번만 콜백함수가 실행
+            // setTimeout( 콜백함수,시간설정 );
+            setTimeout(()=>{
+                console.log("1초 이후에 한번만 실행")
+            } , 1000);
+            // setInterval함수 : 특정시간마다 콜백함수가 실행
+            let count = 0;
+            const interval = setInterval(()=>{
+                count += 1;
+                console.log(`1초 마다 실행 : ${count}`);
+                // setInterval함수를 내부에서 멈추는 방법
+                // if(count === 5){
+                //     clearInterval(interval);
+                // }
+            },1000);
+
+            // setInterval함수를 멈추는 방법 - clearInterval()함수사용
+            // clearInterval(interval);
+
+            // 멈춤버튼 클릭 했을때
+            const stop = () => {
+                // setInterval함수를 멈추도록 한다.
+                clearInterval(interval);
+            }
+        </script>
+    </body>
+</html>

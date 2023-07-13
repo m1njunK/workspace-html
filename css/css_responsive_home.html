@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 반응형 웹 구현을 위한 뷰포트 지정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css응용 홈화면</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        /* 헤더 */
+        header h1{
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        nav{
+            text-align: center;
+            margin-top: 20px;
+            border-top: 1px solid black;
+        }
+
+        nav ul#main_menu{
+            list-style-type: none;
+            padding-top: 20px;
+        }
+
+        ul#main_menu li{
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        /* 사이드 메뉴 */
+        aside{
+            width: 10%;
+            height: 300px;
+            position: fixed;
+            left: 10px;
+            top: 10%;
+            background-color: aquamarine;
+        }
+
+        aside ul#aside_menu li{
+            line-height: 100px;
+            text-align: center;
+        }
+
+        /* 메인 */
+        main{
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        main img#main_img{
+            width: 80%;
+        }
+
+        main .content{
+            margin: 10px 0;
+            padding: 10px 10%;
+            text-align: center;
+        }
+
+        main .content article.cont_box{
+            width: 30%;
+            border: solid 1px black;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .cont_box p{
+            width: 100%;
+            height: 200px;
+        }
+
+        .cont_box p img{
+            width: 100%;
+            height: 100%;
+        }
+
+        dl{
+            padding: 20px;
+        }
+
+        dl dd{
+            margin-top: 10px;
+        }
+
+        /* 푸터 */
+        footer{
+            background-color: beige;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #footer_sns img, #footer_policy, #footer_contact{
+            margin: 5px;
+        }
+
+        /* 
+            반응형 웹 적용
+        */
+        
+        /* 
+            css에서 사용하는 크기 단위
+            1. px : 픽셀 (1/해상도)
+            2. em : 부모요소의 글꼴 크기(브라우저의 기본값 16px = 1em)
+            3. rem : 루트요소의 글꼴 크기(브라우저의 기본값 16px = 1rem)
+            4. vw : viewport너비 백분율(화면의 너비에 비례해서)
+            5. vh : viewport높이 백분율(화면의 높이에 비례해서)
+            6. % : 부모의 크기 백분율
+
+            px : 절대값
+            em,rem : 글꼴단위
+            그외 : vw,vh,%
+        */
+        
+        /* 테블릿 및 웹사이즈 줄인 화면에서 표시 */
+
+        @media screen and (max-width:910px) 
+        {
+           li, article{
+            font-size: 1.3rem;
+           }
+           
+            aside{
+                width: 17vw;
+            }
+
+            /* media쿼리 안에서 수정되는 선택자는 일반화면에서
+                적용했던 css선택자와 동일하게 일치 시켜줘야 적용이 된다. */
+            
+            main .content article.cont_box
+            {
+                width: 80vw;
+                display: flex;
+                margin: 20px 0;
+            }
+
+            .cont_box p{
+                width: 200%;
+                height: auto;
+            }
+        }
+
+        /* 모바일 화면에서 표시 */
+        @media screen and (max-width:680px)
+        {
+            aside{
+                width: 100%;
+                position: static;
+                margin-top: 20px;
+                height: 25vh;
+            }
+
+            aside ul#aside_menu li{
+                line-height: 8vh;
+            }
+
+            main .content article.cont_box
+            {
+                width: 80vw;
+                display: inline-block;
+                margin: 20px 0;
+            }
+
+            .cont_box p{
+                width: 100%;
+                height: auto;
+            }
+
+            li, article{
+            font-size: 1.8rem;
+           }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LOGO</h1> <!-- 로고 -->
+        <nav> <!-- 상단메뉴 -->
+            <ul id="main_menu">
+                <li>메뉴1</li>
+                <li>메뉴2</li>
+                <li>메뉴3</li>
+            </ul>
+        </nav>
+    </header>
+    <aside>
+        <ul id="aside_menu">
+            <li>사이드 메뉴1</li>
+            <li>사이드 메뉴2</li>
+            <li>사이드 메뉴3</li>
+        </ul>
+    </aside>
+    <main>
+        <img id="main_img" src="../cherry_blossom.jpg" alt="메인이미지">
+        <div class="content">
+            <h2>고양이 예쁘다</h2>
+            <article class="cont_box">
+                <p><img src="../img/cat1.jpg" alt="고양이1"></p>
+                <dl>
+                    <dt>고양이</dt>
+                    <dd>고양이는 식육목 고양이과에 속하는 포유류이다.
+                        집고양이의 기원은 약 1만년 전 중동 지역에서 
+                        스스로 숲속을 나와 사람들이 모여사는 마을에 정착하여
+                        길들여진 아프리카들고양이로 추측된다.</dd>
+                </dl>
+            </article>
+
+            <article class="cont_box">
+                <p><img src="../img/cat2.jpg" alt="고양이2"></p>
+                <dl>
+                    <dt>고양이</dt>
+                    <dd>고양이는 식육목 고양이과에 속하는 포유류이다.
+                        집고양이의 기원은 약 1만년 전 중동 지역에서 
+                        스스로 숲속을 나와 사람들이 모여사는 마을에 정착하여
+                        길들여진 아프리카들고양이로 추측된다.</dd>
+                </dl>
+            </article>
+
+            <article class="cont_box">
+                <p><img src="../img/cat3.jpg" alt="고양이3"></p>
+                <dl>
+                    <dt>고양이</dt>
+                    <dd>고양이는 식육목 고양이과에 속하는 포유류이다.
+                        집고양이의 기원은 약 1만년 전 중동 지역에서 
+                        스스로 숲속을 나와 사람들이 모여사는 마을에 정착하여
+                        길들여진 아프리카들고양이로 추측된다.</dd>
+                </dl>
+            </article>
+        </div>
+    </main>
+    <footer>
+        <article id="footer_sns">
+            <img src="../img/facebook.png" alt="페이스북페이지">
+            <img src="../img/insta.png" alt="인스타페이지">
+            <img src="../img/twitter.png" alt="트위터페이지">
+        </article>
+        <article id="footer_policy">개인정보 처리방침</article>
+        <article id="footer_contact">contact : test@test.com </article>
+    </footer>
+</body>
+</html>

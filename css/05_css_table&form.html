@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>05테이블과form태그관련 css</title>
+        <style>
+        table, td{
+            border: solid 1px black;
+            /* border-collapse: collapse; -> 바깥테두리와 셀의 테두리를 합쳐준다. */
+            /* border-collapse: collapse; */
+            border-collapse: separate;
+            padding: 10px;
+            text-align: center;
+            empty-cells: hide;
+        }
+        #title{
+            background-color: rgb(138, 249, 249);
+        }
+        .trainNum{
+            background-color: rgb(242, 100, 100);
+        }
+
+    </style>
+    </head>
+    <body>
+        <h1>테이블 관련 css들</h1>
+        <ul>
+            <li>border : 테이블의 테두리와 셀의 테두리 지정(두가지 전부 지정해야한다)</li>
+            <li>border-collapse : 테이블의 테두리와 셀 테두리를 합칠지 여부를 설정</li>
+            <li>empty-cell : 테이블 테두리 설정을 분리시켜준 상태에서 내용이 없는 빈 셀들의
+                표시 여부를 설정
+            </li>
+        </ul>
+        <table>
+            <tr id="title">
+                <td>열차번호</td>
+                <td>출발</td>
+                <td>도착</td>
+                <td>특실</td>
+                <td>일반실</td>
+                <td>소요시간</td>
+            </tr>
+            <tr>
+                <td class="trainNum">175</td>
+                <td>서울<br>15:00</td>
+                <td>대전<br>17:00</td>
+                <td>매진</td>
+                <td>예약대기</td>
+                <td>02:00</td>
+            </tr>
+            <tr>
+                <td class="trainNum">176</td>
+                <td>대전<br>17:00</td>
+                <td>부산<br>19:00</td>
+                <td>예약가능</td>
+                <td>예약가능</td>
+                <td>02:00</td>
+            </tr>
+            <tr>
+                <td class="trainNum">177</td>
+                <td>서울<br>18:00</td>
+                <td>대전<br>20:00</td>
+                <td>예약대기</td>
+                <td>매진</td>
+                <td></td>
+            </tr>
+        </table>
+    </body>
+</html>

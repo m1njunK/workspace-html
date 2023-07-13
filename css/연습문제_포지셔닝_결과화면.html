@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    /*
+        태그명 : 태그 선택자
+       .클래스명 : 클래스 선택자 
+       #아이디명 : 아이디 선택자
+       부모선택자 자식선택자 : 부모 자식 선택자
+       - 부모요소 밑에 자식요소가 있을 경우 적용(자식선택자가 적용대상)
+     */
+
+    body .items{
+      float: left;
+      margin: 18px;
+      border: solid 1px gray;
+      padding: 30px 0 30px 50px;
+    }
+
+    .i1 img{
+      width: 400px;
+    }
+
+    .i2{
+      color: gray;
+      margin-top: 15px;
+    }
+
+    .i3{
+      font-size: 30px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .i4{
+      margin-top: 15px;
+      border-top: solid 2px;
+      padding-top: 15px;
+    }
+
+    /* 다중조건선택자 : and연산 
+      - 두가지 선택자의 조건이 일치 할때만 css가 적용
+      - 두가지 선택자의 공백을 없앤다.
+        or연산
+      - 둘중 하나의 선택자의 조건이 일치 할때 css가 적용(다중선택)
+      - 두가지(혹은 그 이상)의 선택자를 ,로 구분한다.
+    */
+
+    span.s1{
+      float: left;
+      color: gray;
+    }
+
+    span.s2{
+      float: right;
+      font-weight: bold;
+      margin-right: 20px;
+    }
+
+  </style>
+  </head>
+
+  <body>
+    <h2>수제 초콜릿 전문점</h2>
+    <div class="items">
+      <ul>
+        <li class="i1"><img src="choco1.jpg"></li>
+        <li class="i2">초콜릿 스타일링</li>
+        <li class="i3">간식용 수제 초콜릿</li>
+        <li class="i4">
+          <div><span class="s1">2023.03.10</span>
+            <span class="s2">좋아요 3 · 추천 5</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="items">
+      <ul>
+        <li class="i1"><img src="choco2.jpg"></li>
+        <li class="i2">초콜릿 스타일링</li>
+        <li class="i3">간식용 수제 초콜릿</li>
+        <li class="i4">
+          <div><span class="s1">2023.03.10</span>
+            <span class="s2">좋아요 3 · 추천 5</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="items">
+      <ul>
+        <li class="i1"><img src="choco3.jpg"></li>
+        <li class="i2">초콜릿 스타일링</li>
+        <li class="i3">간식용 수제 초콜릿</li>
+        <li class="i4">
+          <div><span class="s1">2023.03.10</span>
+            <span class="s2">좋아요 3 · 추천 5</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="items">
+      <ul>
+        <li class="i1"><img src="choco4.jpg"></li>
+        <li class="i2">초콜릿 스타일링</li>
+        <li class="i3">간식용 수제 초콜릿</li>
+        <li class="i4">
+          <div><span class="s1">2023.03.10</span>
+            <span class="s2">좋아요 3 · 추천 5</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="items">
+      <ul>
+        <li class="i1"><img src="choco5.jpg"></li>
+        <li class="i2">초콜릿 스타일링</li>
+        <li class="i3">간식용 수제 초콜릿</li>
+        <li class="i4">
+          <div><span class="s1">2023.03.10</span>
+            <span class="s2">좋아요 3 · 추천 15</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="items">
+      <ul>
+        <li class="i1"><img src="choco6.jpg"></li>
+        <li class="i2">초콜릿 스타일링</li>
+        <li class="i3">간식용 수제 초콜릿</li>
+        <li class="i4">
+          <div><span class="s1">2023.03.10</span>
+            <span class="s2">좋아요 3 · 추천 5</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+
+</html>

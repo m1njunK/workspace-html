@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 헤더 */
+        header{
+            height: 100px;
+            width: 100%;
+            position: relative;
+            border-bottom: groove 1px black;
+            background-color: yellow;
+        }
+
+        #logo_img{
+            position: absolute;
+            top: 35%;
+            padding-left: 20%;
+        }
+
+        a img{
+            width: 100px;
+        }
+        nav #top_menu{
+            list-style-type: none;
+            position: absolute;
+            top: 35%;
+            left: 30%;
+        }
+
+        #top_menu li{
+            display: inline-block;
+            margin-left: 50px;
+        }
+
+        /* 사이드메뉴 */
+
+        aside{
+            position: fixed;
+            right: 0;
+            top: 20%;
+        }
+
+        #aside_menu{
+            list-style-type: none;
+        }
+
+        #aside_menu li{
+            text-align: center;
+            border: solid 1px black;
+            border-radius: 100%;
+            padding: 20px;
+            margin: 10px;
+            color: white;
+            background-color: black;
+            width: 50px;
+            height: 50px;
+            font-size: 0.8em;
+        }
+
+
+        /* 메인메뉴 */
+
+        main{
+            background-color: beige;
+        }
+        #content{
+            text-align: center;
+            padding-top: 30%;
+        }
+
+        #content h1,h3{
+            margin-bottom: 15px;
+        }
+        #cont_box{
+            padding: 0 10%;
+            padding-bottom: 100px;
+        }
+        .cont_box{
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+            border: solid 1px black;
+            margin: 0 1vw;
+        }
+
+        .cont_box,img{
+            border-radius: 2%;
+        }
+
+        
+
+        .cont_box p img{
+            width: 100%;
+        }
+
+        .cont_box li{
+            list-style: none;
+        }
+
+        .cont_box .l1{
+            font-size: 12px;
+            margin: 10px 0;
+        }
+
+        .cont_box .l2{
+            float: left;
+            font-size: 10px;
+            color: gray;
+            margin: 10px;
+
+        }
+
+        /* 푸터 */
+        footer{
+            border: solid 1px black;
+            text-align: center;
+            background-color: aquamarine;
+        }
+
+        #footer_sns .logo_img{
+            height: 20px;
+        }
+        #footer_sns img{
+            margin: 5px;
+        }
+
+        /* 모바일 화면 */
+
+        @media screen and (max-width:500px) 
+        {
+            a img{
+                width: 20vw;
+            }
+
+            #logo_img{
+                padding-left: 5vw;
+            }
+
+
+            nav #top_menu li{
+                margin: 0;
+                font-size: small;
+            }
+
+            aside{
+                padding-top: 55vh;
+                width: 100%;
+            }
+
+            #aside_menu{
+                display: flex;
+                justify-content: center;
+                
+            }
+
+            #aside_menu li{
+                display: inline-block;
+                width: 10vw;
+            }
+
+            #content{
+                padding-top: 0%;
+            }
+
+            .cont_box{
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 10em;
+            }
+        }
+            /* 태블릿 화면 */
+
+            @media screen and (max-width:900px)
+            {
+                a img{
+                    width: 20vw;
+                }
+
+                #logo_img{
+                    padding-left: 5vw;
+                }
+
+                nav #top_menu li{
+                    font-size: 20px;
+                    padding-left: 1vw;
+                    margin-left: 15px;
+                }
+
+                #content h1{
+                    font-size: 2em;
+                }
+                #content{
+                    padding-top: 3vh;
+                    margin-bottom: 3vh;
+                }           
+                
+                .cont_box{
+                    width: 100%;
+                    margin-bottom: 10vh;
+                }
+
+                .cont_box .l1{
+                    font-size: 2em;
+                }
+
+                .cont_box .l2{
+                    font-size: 1.5em;
+                }
+
+
+            }
+
+    </style>
+    </head>
+
+    <body>
+        <header>
+            <div id="logo_img">
+                <a><img src="../img/logo_b.png"></a>
+            </div>
+
+            <nav>
+                <ul id="top_menu">
+                    <li>메가스토리</li>
+                    <li>메뉴소개</li>
+                    <li>매장</li>
+                    <li>창업안내</li>
+                    <li>메가소식</li>
+                </ul>
+            </nav>
+        </header>
+
+        <aside>
+            <ul id="aside_menu">
+                <li>창업상담</li>
+                <li>고객센터</li>
+                <li>Q&A</li>
+                <li>1호 오픈</li>
+            </ul>
+        </aside>
+
+        <main>
+            <div id="content">
+                <h3>메가MGC커피소식</h3>
+                <h1>MEGA EVENT</h1>
+            </div>
+
+            <div id="cont_box">
+                <article class="cont_box">
+                    <p class="cont_img"><img src="../img/img1.jpg"></p>
+                    <ul>
+                        <li class="l1">'봄 시즌' 오픈 기념 이벤트</li>
+                        <li class="l2">2023-02-28</li>
+                    </ul>
+                </article>
+
+                <article class="cont_box">
+                    <p class="cont_img"><img src="../img/img2.jpg"></p>
+                    <ul>
+                        <li class="l1">KT 멤버십 VIP 초이스</li>
+                        <li class="l2">2023-02-28</li>
+                    </ul>
+                </article>
+
+                <article class="cont_box">
+                    <p class="cont_img"><img src="../img/img3.png"></p>
+                    <ul>
+                        <li class="l1">메가MGC커피X 페이코 이벤트</li>
+                        <li class="l2">2023-01-19</li>
+                    </ul>
+                </article>
+            </div>
+        </main>
+
+        <footer>
+            <article id="footer_sns">
+                <img class="logo_img" src="../img/logo_b.png" alt="로고">
+                <img src="../img/facebook.png" alt="페이스북페이지">
+                <img src="../img/insta.png" alt="인스타페이지">
+                <img src="../img/twitter.png" alt="트위터페이지">
+            </article>
+            <article id="footer_policy">개인정보 처리방침</article>
+            <article id="footer_contact">contact : test@test.com </article>
+        </footer>
+    </body>
+</html>

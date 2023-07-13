@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS조건문</title>
+    </head>
+    <body>
+        <h1>조건에 따라 실행의 흐름을 제어할 수 있는 조건문</h1>
+        <script>
+        // 조건문의 종류
+        // 1. if문 (if, if else, else if, else)
+        // if문의 기본형태 : if( 조건(표현)식 ){ 조건이 참인 경우 수행되는 수행문 }
+        let a=3, b=5;
+        if(a==b) { //a와 b가 같으면 중괄호 안의 수행문을 실행한다.
+            console.log("a와 b는 같습니다."); // 조건이 부합하지 않으니, 실행 X 
+        }
+
+        if(a==3) console.log("a는 3입니다."); // if문의 수행문이 한줄이면 {}를 생략가능.
+
+        // if else문 의 기본형태 : if( 조건(표현)식 ){ 참인경우 수행 } else { 거짓인경우 수행 }
+        let user = "관리자";
+
+        if(user=="회원"){   // user변수의 값과 문자열"회원"이 같을 경우에 
+            // 조건이 참이 될때 실행문 
+            console.log("회원님이 로그인 하셨습니다.");
+        }
+
+        else{   // 위의 if문의 조건이 거짓일 경우 중괄호 아래의 수행문을 실행
+            console.log("관리자님이 로그인 하셨습니다.");
+        }
+
+        // else if 문 의 기본형태
+        // if문 이외의 조건을 추가해야하는 상황에서 else if문을 사용하면 된다.
+        /*
+            if(조건(표현)식){
+                조건(표현)식 이 참인경우의 수행문
+            }
+
+            else if(조건(표현)식2){
+                조건(표현)식2 이 참일경우의 수행문
+            }
+
+            else{
+                조건1, 조건2 모두 거짓일경우의 수행문
+            }
+        */
+
+        // let score = 95;
+
+        // if(score >= 70 && score < 80) // 점수가 70점 이상이고, 80점 미만일때
+        // {
+        //     console.log("당신의 점수는 C입니다.");
+        // }
+
+        // else if(score >= 80 && score < 90)
+        // {
+        //     console.log("당신의 점수는 B입니다.");
+        // }
+
+        // else if(score >= 90)
+        // {
+        //     // if문을 추가하여 95점 이상이면 A+
+        //     // 90점~94점 이면 A출력이 되도록.
+        //     if(score >= 95)
+        //     {
+        //         console.log("당신의 점수는 A+입니다.");
+        //     } 
+
+        //     else
+        //     {
+        //         console.log("당신의 점수는 A입니다.");
+        //     }
+        // }
+
+        // else
+        // {
+        //     // 위의 조건 세가지가 전부 거짓일 경우 수행됨.
+        //     console.log("당신의 점수는 D입니다.");
+        // }
+
+        // if문안에 if문이 중첩되어 사용가능하다.
+        // 제어문안에 제어문을 중첩하여 사용도 가능하다.
+
+        // let score = 95;
+
+        // if(score >= 70 && score < 80) // 점수가 70점 이상이고, 80점 미만일때
+        // {
+        //     console.log("당신의 점수는 C입니다.");
+        // }
+
+        // else if(score >= 80 && score < 90)
+        // {
+        //     console.log("당신의 점수는 B입니다.");
+        // }
+
+        // else if(score >= 90)
+        // {
+        //     // if문을 추가하여 95점 이상이면 A+
+        //     // 90점~94점 이면 A출력이 되도록.
+        //     if(score >= 95)
+        //     {
+        //         console.log("당신의 점수는 A+입니다.");
+        //     } 
+
+        //     else
+        //     {
+        //         console.log("당신의 점수는 A입니다.");
+        //     }
+        // }
+
+        // else
+        // {
+        //     // 위의 조건 세가지가 전부 거짓일 경우 수행됨.
+        //     console.log("당신의 점수는 D입니다.");
+        // }
+
+        // 2. switch문
+        // switch문의 형태
+        /*
+            switch(변수(조건)){
+                case 값1:
+                    조건(변수)의 값이 값1일 경우 수행문;
+                    brack;
+                
+                case 값2:
+                    조건(변수)의 값이 값2일 경우 수행문;
+                    break;
+                
+                default:
+                    조건(변수)의 값이 case절에 해당하지 않을경우 수행문;
+                    break;
+            }
+        */
+
+        let browser = "IE";
+
+        switch(browser){
+            case "IE" : 
+                console.log("IE 브라우저 입니다.");
+                break; //브레이크문이 없으면 조건에 부합하는 case절 아래의 수행문을 전부 실행시킨다.
+            case "Firefox" :
+                console.log("파이어폭스 브라우저 입니다.");
+                break;
+            case "Safari" :
+                console.log("사파리 브라우저 입니다.");
+                break;
+            default :
+                console.log("크롬 브라우저 입니다.");
+                break;
+        }
+
+        // 사용자에게 특정값을 입력을 받아서
+        // 조건문을 실습
+
+        // let inputText = prompt("이름을 입력해 주세요.","한글로 입력할것.");
+        // alert("당신의 이름은 : "+inputText+" 입니다.");
+
+        // 위의 prompt함수를 응용해서, 성적처리 프로그램을 만들어 봅시다.
+        // ex) 89 -> 당신의 성적은 B+ 입니다. 출력하도록
+        // 성적의 기준은 다음과 같다.
+        
+        // 95~100 : A+
+        // 90~94 : A
+        // 85~89 : B+
+        // 80~84 : B
+        // 75~79 : C+
+        // 70~74 : C
+        // 65~69 : D+
+        // 60~64 : D
+        // 60점 미만 : F
+
+        // 입력한 값이 숫자 일때만 작동하도록
+        // 입력한 값이 숫자가 아닌 경우에는 숫자가 아니라는 메세지를 전달하도록
+        // 소스코드를 수정 및 추가 해봅시다.
+
+    //     let score = parseFloat(prompt("점수를 입력하세요","점수를 입력하세요"));
+    //     // NaN : 타입은 number이지만, 숫자로 변환 실패시 표현되는 변수.
+    //     // Number객체 안에 isNaN()함수를 통해서 NaN값을 체크 -  
+
+    //     let grade;
+        
+    //     console.log("NaN체크", Number.isNaN(score));
+    //     // console.log(typeof score.toString());
+
+    //     // if(typeof score == "number" && !Number.isNan(score))
+
+    //     // if(score>=0 && score <= 100) <- 0에서 100사이 점수만 체크
+
+    //     if(score<=100)
+    //     {
+    //         if(score>=90)
+    //         {
+    //             if(score>=95)
+    //             {
+    //                 grade = "A+";
+    //             }
+
+    //             else
+    //             {
+    //                 grade = "A";
+    //             }
+    //         }
+
+    //         else if(score>=80)
+    //         {
+    //             if(score>=85)
+    //             {
+    //                 grade = "B+";
+    //             }
+
+    //             else
+    //             {
+    //                 grade = "B";
+    //             }
+    //         }
+
+    //         else if(score>=70)
+    //         {
+    //             if(score>=75)
+    //             {
+    //                 grade = "C+";
+    //             }
+
+    //             else
+    //             {
+    //                 grade = "C";
+    //             }
+    //         }
+
+    //         else if(score>=60)
+    //         {
+    //             if(score>=65)
+    //             {
+    //                 grade = "D+";
+    //             }
+
+    //             else{
+    //                 grade = "D";
+    //             }
+    //         }
+
+    //         else
+    //         {
+    //             grade = "F";
+    //         }
+        
+    //         alert(`당신의 성적은 ${grade}입니다.`);
+    // }
+
+    // else if(score > 100 || score < 0)
+    // {
+    //     alert("0~100사이 숫자만 입력 가능!")
+    // }
+
+    // else{
+    //     alert("숫자만 입력하세요!!")
+    // }
+
+    // 스위치문을 활용하여 입력된 값이 홀수 인지 짝수인지 구분하는 프로그램을 생성해봅시다.
+    // 홀수인경우, 짝수인경우, 숫자가 아닌경우
+    
+    let num = Number(prompt("홀짝 판독기","숫자를 입력하세요"));
+
+    console.log(num);
+
+    switch(num%2)
+    {
+        case 0: alert("짝!");
+            break;
+
+        case 1: alert("홀!");
+            break;
+
+        default: alert("숫자만 입력하세요!");
+            break;
+    }
+
+    </script>
+    </body>
+</html>

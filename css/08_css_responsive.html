@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- 일반적인 사용법 : 뷰포트의 너비를 기기화면 너비에 맞추고, 초기 화면 배율을 1로 지정 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>반응형 웹</title>
+        <style>
+            /* 
+                미디어 쿼리 예제
+            */
+            /* 화면크기가 ~600px까지는 배경색을 aquamarine으로 지정 */
+            /* and (조건설정) : 사이에 띄어쓰기 중요!! */
+            @media screen and (max-width:600px) {
+                body{
+                    background-color: aquamarine;
+                }
+            }
+
+            /* 
+                그리드 레이아웃 예제
+            */
+
+            .wrapper{
+                display: grid;
+                /* 열의 개수 크기 : grid-template-columns
+
+                    행의 개수 및 크기 : grid-template-rows
+                */
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-rows: 100px 100px;
+                /* 요소간의 간격 설정 */
+                grid-gap: 10px;
+            }
+
+            .wrapper div{
+                background-color: azure;
+                border: solid 2px blueviolet;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            /* 행 기준 위치 :
+               열 기준 위치 :  */
+            .box1{grid-row: 2; grid-column: 2;}
+            .box2{grid-row: 1; grid-column: 3;}
+            .box3{grid-row: 1; grid-column: 2;}
+
+            /*
+                플렉스 박스 예제 
+            */
+            .flex-container{
+                /* 기본 적용 (display: flex) */
+                display: flex;
+                background-color: lightgray;
+                /* 요소 배치 방향 지정(flex-direction) 
+                    row, row-reverse, column, column-reverse*/
+                /* flex-direction: row; */
+
+                /* 요소 감싸기(줄바꿈) (flex-wrap) */
+                /* flex-wrap: wrap; */
+
+                /* 요소 정렬 (justify-content) */
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .flex-item{
+                background-color: bisque;
+                border: 1px solid red;
+                /* 요소 감싸기(줄바꿈) */
+                /* width: 300px; */
+
+                /* 요소정렬 */
+                width: 50px;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>반응형 웹이란</h1>
+        <ul>
+            <li>웹 사이트의 내용을 그대로 유지하면서 다양한 화면 크기에 맞게
+                웹사이트를 표시하는 방법
+            </li>
+            <li>화면 크기에 반응해 화면 요소들을 자동으로 바꾸어 사이트를 구현 하는것</li>
+            <li>가로 모드에 맞춘 레이아웃 변경 가능</li>
+            <li>사이트 유지보수가 용이</li>
+        </ul>
+
+        <h3>반응형 웹 구현을 위한 기술</h3>
+        <ul>
+            <li>뷰포트
+                <ul>
+                    <li>실제 내용이 표시되는 영역</li>
+                    <li>뷰포트를 지정하면 기기화면에 맞춰 확대/축소해서 내용 표시</li>
+                    <li>head태그 안에서 meta태그를 이용해 뷰포트 설정</li>
+                </ul>
+            </li>
+            <hr>
+            <li>미디어 쿼리
+                <ul>
+                    <li>접속하는 장치(미디어)에 따라 특정한 css스타일을 사용하도록 함</li>
+                    <li>기본 형태 :
+                        @media [only | not] 미디어유형 [and 조건]*[and 조건]</li>
+                    <li>
+                        only : 특정 웹브라우저(미디어 쿼리를 지원하는)에서만 조건을 인식하게 한다.<br>
+                        not : 지정한 미디어유형은 제외하고 적용 시킨다.
+                    </li>
+                    <li>
+                        미디어 유형 : <br>
+                        all : 모든 미디어 유형<br>
+                        print : 인쇄 장치<br>
+                        <b>* screen : 장치의 화면 *</b><br>
+                        tv : 음성과 영상이 동시 출력되는 tv<br>
+                        projector : 프로젝터<br>
+                    </li>
+                </ul>
+            </li>
+            <hr>
+
+            <li>그리드 레이아웃
+                <ul>
+                    <li>화면을 여러개의 컬럼(column)으로 나누어, 필요할때 마다
+                        컬럼들을 묶어서 배치하는 방법
+                    </li>
+                    <li>
+                        column : 열 <br>
+                        row : 행
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <hr>
+
+        <!-- 그리드 레이아웃 예제 -->
+        <h3>그리드 레이아웃 예제</h3>
+        <div class="wrapper">
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+            <div>E</div>
+            <div>F</div>
+        </div><hr>
+        <div class="wrapper">
+            <div class="box1">A</div>
+            <div class="box2">B</div>
+            <div class="box3">C</div>
+        </div>
+        <hr>
+        <ul>
+        <li>플렉스 박스 레이아웃
+            <ul>
+                <li>그리드 레이아웃을 기본으로, 플렉스 박스를 원하는 위치에 배치</li>
+                <li>여유공간에 따라 너비나 높이, 위치를 자유롭게 변형할수 있다.</li>
+            </ul>
+        </li>
+    </ul> <hr>
+    <h3>플렉스 박스 예제</h3>
+    <div class="flex-container">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+    </div>
+
+    </body>
+</html>

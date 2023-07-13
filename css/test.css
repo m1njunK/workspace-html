@@ -1,0 +1,19 @@
+table,tr,td{
+    border: solid 1px gray;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 5px;
+}
+tr{
+    height: 40px;
+}
+#main{
+    background-color: ivory;
+    font-weight: bold;
+}
+.num{
+    background-color: aqua;
+    text-decoration: underline ;
+    color: brown;
+    font-weight: bold;
+}

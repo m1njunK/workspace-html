@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뉴스 제공 서비스</title>
+    <!-- axios를 활용하기 위한 CDN선언 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        #news-list{
+            box-sizing: border-box;
+            padding-bottom: 3rem;
+            width: 768px;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+        .news-item{display: flex;}
+        /* 
+            css 선택자 +선택자 
+            인접 형제 결합자
+            같은 부모요소를 공유하는 태그 선택자중에 두번째 요소를 선택을 해주는 선택자
+        */
+        .news-item + .news-item{margin-top: 3rem;}
+        .news-item .thumbnail{margin-right: 1rem;}
+        .news-item .thumbnail img{
+            display: block; width: 160px;
+            height: 100px; 
+        }
+        .news-item .contents h2{margin: 0;}
+        .news-item .contents h2 a{color: black;}
+        .news-item .contents p{
+            margin: 0; line-height: 1.5;
+            margin-top: 0.5rem; 
+        }
+    </style>
+</head>
+<body>
+    <h1>뉴스 API를 활용한 뉴스제공 서비스 구현</h1>
+    <button onclick ="getNews()">뉴스기사 확인</button>
+    <div id="news-list">
+        <div class="news-item">
+        <!-- 뉴스 목록이 보여질 위치 -->
+        </div>
+    </div>
+    <script>
+        // 사용할 url : https://newsapi.org/v2/top-headlines
+        // url요청시 method타입 : get
+        // 필요한 파라미터 : country = kr 
+        //                  apiKey = a8f0d4f98b2f4e60847d990ca71a8503
+
+        // 파라미터 란?(웹 개발에서 이야기하는 파라미터)
+        // url에서 ?뒤에 오는 모든 항목들이 파라미터 이다.
+        // https://newsapi.org/v2/top-headlines?apiKey=a8f0d4f98b2f4e60847d990ca71a8503&country=kr
+        // 파라미터는 없을수도 있고, 한개 이상이 될수도 있다.
+        // 파라미터 간의 구분은 &로 구분한다.
+        // url?파라미터이름=값&파라미터이름2=값
+        // 파라미터들은 순서가 상관이 없다.
+        // 불리는 이름은 파라미터(Parameter) 혹은 Query String 이라고도 부른다.
+
+
+        let list = document.getElementById("news-list")
+
+        function getNews(){
+            // if(document.getElementById("news-list").style.display)
+        let newsList = axios({
+            url:'https://newsapi.org/v2/top-headlines',
+            method:'get',
+            params:{
+                apikey : 'a8f0d4f98b2f4e60847d990ca71a8503',
+                country : 'us', //한국기사에 없는 내용이 많아서 미국기사로 수정
+                category : 'entertainment'
+            }
+            });
+
+        newsList.then((result) => {
+            //ajax통신이 성공했을경우 수행문
+            // console.log("성공시 : ",result.data.articles);
+            const articles = result.data.articles;
+            let code ='';
+            
+            for(let article of articles){
+                // console.log(article);
+                const url = article.url; //실제 뉴스기사의 주소
+                const urlToImage = article.urlToImage; //뉴스기사의 썸네일
+                const title = article.title; //뉴스기사의 제목
+                const desc = article.description; //뉴스기사의 내용
+
+                code += `
+                <div class="news-item">
+                    <div class="thumbnail">
+                        <a href=${url} target="_blank">
+                            <img src=${urlToImage} alt="thumbnail">    
+                        </a>
+                    </div>
+                    <div class="contents">
+                        <h2>
+                            <a href=${url} target="_blank">${title}</a>
+                        </h2>
+                        <p>${desc}</p>
+                    </div>
+                </div>
+                `;
+            }
+
+            document.querySelector("#news-list").innerHTML = code;
+
+
+        }).catch((err) => {
+            //ajax통신이 실패했을경우 수행문
+            console.log("실패시 : ",err);
+        });
+    }
+
+    </script>
+</body>
+</html>

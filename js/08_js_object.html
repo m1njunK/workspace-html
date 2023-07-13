@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS객체</title>
+</head>
+<body>
+    <h1>JS의 객체 - js를 이루고있는 object</h1>
+    <script>
+        // 자바스크립트의 객체
+        // 자바스크립트의 모든 개념들이 객체에 포함된다고 봐도 무방할정도로
+        // 범위가 넓다.
+        // 프로퍼티(변수) 와 메소드(함수)의 집합체
+
+        // 객체의 형태 {}를 JS의 객체
+        // let 객체이름 = { 프로퍼티이름 : 값 , 프로퍼티이름 : 함수 }
+
+        // 객체 생성 - 리터럴 표기를 이용한 객체 생성
+        let person = {
+            name : '홍길동',
+            brith : '2023-03-31',
+            bloodType : 'A형',
+            pId : 12345,
+            eat : function(){
+                return "밥을 먹는다.";
+            }
+        }
+
+        // 객체안에 있는 프로퍼티 사용
+        // 객체변수명.프로퍼티이름;
+        // 객체변수명["프로퍼티이름"];
+
+        console.log("person 의 이름 :",person.name);
+        console.log("이름은 :",person['name']);
+
+        // 객체안에 정의된 메소드(프로퍼티) 사용
+        // 객체변수명.메소드명();
+        console.log("현재 홍길동은 :",person.eat());
+
+        // 객체생성 - 생성자 함수를 통한 생성방법;
+        function human(name,birth,bloodType){
+            // 함수 내부에서 this 키워드를 이용하면
+            // 해당 메소드를 포함하는 포함하는 객체를 뜻한다.
+            this.name = name;
+            this.birth = birth;
+            this.bloodType = bloodType;
+        }
+        // 생성자 함수를 이용하여 객체 생성시 new연산자를 사용해야한다.
+        let man = new human("이순신",20230401,"A형",);
+        console.log("생성자 함수를 이용한 man생성 :",man);
+
+        // 객체의 프로퍼티에 접근하여 데이터 수정
+        let dog = {
+            name : "솜이",
+            family : "비숑",
+            age : 4
+        }
+
+        dog.age = 5; // 속성 수정
+        
+        console.log(dog);
+        dog.color = '흰색'; // 속성 추가
+        console.log(dog);
+        
+        delete dog.family; // 속성 삭제
+        console.log(dog);
+
+        // 반복문을 이용한 속성 제어
+        let food = {
+            pizza : '피자',
+            chicken : '치킨',
+            pasta : '파스타',
+        }
+
+        for(key in food){
+            console.log("for in을 사용한 객체 제어 :",key);
+        }
+
+        // for/of 반복문은 반복되는 인덱스 값이 있을때만 사용가능 - 객체에서 사용은 안되겠다.
+        // for(value of food){
+        //     console.log("for of를 이용한 객체 제어 :",value);
+        // }
+
+    </script>
+</body>
+</html>

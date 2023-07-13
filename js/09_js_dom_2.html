@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS의 DOM조작2</title>
+    </head>
+    <body>
+        <p></p>
+        <p id="secondP">두번째 p태그</p>
+        <p class="thirdP", id="thirdP", style="background-color: aqua;">세번째 p태그</p>
+        <!-- html내부에서 onclick 속성을 이용하면
+            클릭이벤트를 추가 할 수 있고,
+            속성의 값에는 우리가 생성한 함수를 호출 할 수 있다.
+        -->
+        <button onclick="click_test()">클릭 테스트</button>
+        <button onclick="add2()">할일추가</button>
+        <button onclick="remove()">할일삭제</button>
+        <br>
+        <button onclick="add()">할일추가(입력)</button>
+        <button onclick="remove2()">할일삭제(입력)</button>
+        <br>
+        <!-- 사용자에게 입력을 받아서 할 일 목록에 추가 -->
+        <input type="text" id="todo">
+        <button onclick="addTodo2()">사용자 입력 할 일 추가</button>
+        <button onclick="removeTodo2()">입력값과 일치하는 할 일 삭제</button>
+
+        <!-- JS를 활용하여 특정HTML요소의 속성을 가져오기 -->
+        <button onclick="getProperty()">세번째 p태그의 속성 가져오기</button>
+        <br>
+        <img id="like", src="../img/unlike.png", onclick="like()">
+
+        <script>
+        // js를 활용한 DOM조작(html 조작)2
+        // 태그선택함수,id선택함수,class선택함수를 간편하게 이용할 수 있는 함수;
+        // document.querySelector('css선택자') - 특정 선택자 하나를 가져오는 함수
+        // 자주 사용되는 css선택자
+
+        /*
+            태그 선택자 : 태그이름
+            아이디 선택자 : #아이디이름
+            클래스 선택자 : .클래스이름
+            부모,자식 선택자 : 선택자1 선택자2
+        */
+
+        // 태그중에서 첫번째 태그를 선택해서 가져온다.
+        let tagP = document.querySelector('p');
+        console.log(tagP);
+        let secondP = document.querySelector('#secondP');
+        console.log(secondP);
+        let thirdP = document.querySelector('.thirdP');
+        console.log(thirdP);
+       
+        //해당 선택자를 가지는태그를 전부 가져오는 함수
+        // document.querySelectorAll('선택자');
+        let tagPs = document.querySelectorAll('p');
+        console.log(tagPs);
+
+        // DOM조작을 이용한 css속성 제어
+        // 해당 dom객체의 style 속성을 제어할 수 있다.
+        tagP.style.color = 'red';
+        tagP.innerText = 'dom조작을 이용한 css속성 제어';
+        tagP.style.textAlign = 'center';
+        tagP.style.fontSize = '20px';
+
+        // 부모태그에 자식태그 추가 - append()함수
+        let tagUl = document.createElement('ul'); //ul태그를 생성
+        let tagLi_1 = document.createElement('li'); //li태그를 생성
+        tagLi_1.innerText = '리스트1번'; //li태그에 텍스트 추가
+        
+        tagUl.appendChild(tagLi_1); //ul태그에 li태그를 추가
+        document.body.appendChild(tagUl); //body태그에 ul태그를 추가
+
+
+        let tagLi_2 = document.createElement('li'); //li태그를 생성
+        tagLi_2.innerText = '리스트2번'; //li태그에 텍스트 추가
+
+        tagUl.appendChild(tagLi_2);
+
+
+        let tagUL_2 = document.createElement('ul'); //두번째 ul태그 생성
+        document.body.appendChild(tagUL_2); //body태그에 두번째 ul태그 적용(추가)
+        // 반복문을 사용하여 html요소 대량 생성
+        for(i=1;i<=10;i++){
+            let li = document.createElement('li');
+            li.innerText = `할 일 추가 ${i}`;
+            li.className = 'todos';
+
+            tagUL_2.appendChild(li);
+        }
+
+        //dom조작을 활용한 메모장 만들기. - html에 함수(이벤트) 추가하기.
+        // 할일 등록하는 함수 생성
+        function click_test(){
+            alert('버튼이 클릭 되었습니다.');
+        }
+
+        // 할일을 추가하는 함수를 생성하고, 위에서 만들어놓은 할일 추가 버튼을 클릭 했을때
+        // 할일이 추가되도록 만들어 봅시다.
+
+            
+
+
+
+        function add2(){
+            let list = document.querySelectorAll('.todos');
+            console.log(list);
+            let li = document.createElement('li');
+            li.innerText = `할 일 추가 ${list.length + 1}`;
+            li.className = 'todos';
+            tagUL_2.appendChild(li);
+        }
+
+        // dom조작을 활용한 html요소 제거
+        // 삭제할 타겟 html을 가져온다.
+        let removeTarget = document.querySelector('#secondP');
+        // 자식요소중에 하나를 삭제한다.
+        // 부모객체.removeChild(자식객체);
+        document.body.removeChild(removeTarget);
+
+        // removeChild함수를 이용하여 할일목록중에서 가장 마지막 요소부터 차례로 제거하는
+        // 버튼과 기능을 만들어봅시다,
+        // 할 일 삭제 버튼 생성
+        // 할 일 삭제 함수 생성
+        // 버튼, 함수 연동
+
+        
+    
+        function remove(){
+            // 현재 removeTodo함수는 할일목로는 전부 삭제된 상태에서
+            // 삭제 버튼을 다시 누르게 되면 console창에 에러가 발생된다.
+            // 해당 에러가 출력이 안되도록 수정을 해봅시다.
+
+            let todoList = document.querySelectorAll('.todos');
+            // 클래스 이름이 todos라고 되어있는 요소를 모두 가져와서 todoList에 저장.
+
+            // console.log(todoList[todoList.length-1]);
+            // 배열.length - 1 == 배열의 마지막 인덱스 값;
+
+
+            let remover = todoList[todoList.length-1];
+            // 우리가 해당페이지에서 tagUL_2 이라는 변수를 만들었기때문에,
+            // 부모태그를 손쉽게 얻을 수 있다.
+
+            if(todoList.length > 0 )
+            {
+                tagUL_2.removeChild(remover);
+            }
+            else{
+                alert("멈춰");
+            }
+        }
+        
+        // 사용자에게 할일을 입력받아서 목록에 추가
+
+        // 삭제 기능은 내가 원하는 할일을 삭제
+        //  - 할일입력을 받아서 해당 할일을 삭제하도록 
+
+        function add(){
+            let LI = document.createElement('li');
+            LI.innerText = prompt('할 일 추가',);
+            tagUL_2.appendChild(LI);
+            console.log(LI);
+        }
+
+        function remove2(){
+            let doList = document.querySelectorAll('li');
+            console.log(doList);
+
+            let remover = prompt('');
+            
+
+            for(i=0;i<doList.length;i++)
+            {
+                if(remover == doList[i].innerText)
+                {
+                    tagUL_2.removeChild(doList[i]);
+                }
+            } 
+        }
+
+        function addTodo2(){
+            // console.log('사용자에게 입력값을 받아 할 일 목록에 추가');
+            let todoText = document.getElementById('todo');
+            // input태그에 입력한 텍스트는 value 속성을 통해서 텍스트를 얻을 수 있다.
+            console.log(todoText);
+            
+            // li태그 생성 및 텍스트와 클래스 지정
+            let li = document.createElement('li');
+            li.innerText = todoText.value;
+            li.className = 'todos';
+
+            //할일을 추가할때 해당할일을 삭제할수 있는 버튼 생성
+            let delBtn = document.createElement('button');
+            //dom요소에 css추가하는 방법 1. -해당dom요소.style.제어할속성 = "속성값";
+            delBtn.style.marginLeft = '10px';
+            //dom 요소에 css추가하는 방법 2. - dom요소.setAttibute('속성명','속성값');
+            // css 뿐만아니라 태그에 추가할수있는 속성들도 전부 추가 가능하다.
+            delBtn.setAttribute('id','todo_55');
+
+            delBtn.innerText = "삭제";
+            // //버튼태그에 이벤트 추가하는 방법
+            // // 특정태그.addEventListener('동작',function(){특정 태그에 동작이 되었을때 수행문})
+            delBtn.addEventListener('click',function(){
+                console.log("삭제버튼 클릭시 동작")
+                // 삭제버튼을 클릭하면 해당 할일이 삭제되도록 소스코드 작성.
+                // 해당버튼이 소속되있는 li태그 변수의 부모요소.removeChild(해당li요소);
+                // <li>빨래하기<button onClick=(function(){ 삭제실행문 ; })>삭제</button></li>
+                // tagUL_2.removeChild(li);
+                li.parentElement.removeChild(li);
+            
+            });
+            
+            // // 삭제버튼을 li태그에 추가
+            li.appendChild(delBtn);
+
+            // li태그에 버튼을 추가하면 다음과 같이 생성이 될것이다.
+            // <li>할일...<button>삭제</button><li>
+
+            // tagUL_2 ul태그에 생성한 li태그 추가
+            tagUL_2.appendChild(li);
+
+        }
+
+        function removeTodo2(){
+            console.log('할 일 입력값 일치하면 삭제');
+
+            let todoText = document.querySelector('#todo');
+            console.log(todoText.value);
+
+            let todoList = document.getElementsByClassName("todos");
+            let targetTodo = '';
+
+            for(i=0;i<todoList.length;i++)
+            {
+            
+                if(todoText.value == todoList[i].textContent){ //사용자가 입력한 값과 할일목록의 할일과 일치하면
+                // targetTodo 변수에 i번째의 할일 li태그를 저장시키겠다.
+                targetTodo = todoList[i];
+
+                if(todoList.length > 0){
+                    // 부모요소.removChild(자식요소);
+                    // tagUL_2.removeChild(targetTodo);
+
+                    // 자기자신.parentElement.removeChild(자기자신(or 자식요소));
+                    targetTodo.parentElement.removeChild(targetTodo);
+                }
+            }  
+            }
+        }
+
+        function getProperty(){
+             let thirdP = document.getElementById('thirdP');
+            console.log("thirdP : ",thirdP);
+            // dom요소.getAttribute('속성명') : 해당dom요소의 속성명의 값을 반환해준다.
+            let id = thirdP.getAttribute('id');
+            console.log("id값 : ",id);
+
+            let class_ = thirdP.getAttribute('class');
+            console.log("class값 : ",class_);
+
+            let style = thirdP.getAttribute('style');
+            console.log('style값 : ',style);
+
+            thirdP.setAttribute("style","color:red");
+        }
+
+        // 좋아요 UI기능 구현 (클릭 이벤트는 버튼이 아니라도 전부 적용이 가능하다.)
+        // 태그에 onclick속성을 주면 클릭이벤트 추가 가능
+        // 1.하트 이미지를 클릭했을때
+        // 채워진 하트로 변경되고, 빈하트는 안보이도록
+        // 2.채워진 하트를 클릭 했을때
+        // 빈하트로 변경되고, 채워진 하트는 안보이도록
+        // 1. 2. 교차로 적용되도록 적용 해봅시다
+
+        function like(){
+
+            let like = document.getElementById('like');
+            console.log(like);
+            
+
+            if(like.getAttribute('src') == '../img/unlike.png')
+            {
+                like.setAttribute("src","../img/like.png");
+            }
+
+            else
+            {
+                like.setAttribute("src","../img/unlike.png");
+            }
+        }
+
+
+
+
+        // function like(){
+        //     // 해당하는 html파일에서 아이디가 like인 요소인 선택하여, 변수 like에 저장시킨다.
+        //     let like = document.querySelector('#like');
+
+        //     // 윗줄에서 얻어온 like태그에 src속성을 가져와서, 변수 likeSrc에 저장시킨다.
+        //     let likeSrc = like.getAttribute('src');
+        //     console.log(likeSrc) // 텍스트로 src속성의 값을 출력하고 있다.
+            
+        //     if(likeSrc == '../img/unlike.png')
+        //     {
+        //         // 현재 이미지가 빈 하트라면, 빨간색 하트로 변경
+        //         // like.setAttribute("src","../img/like.png"); //like의 src속성의 값을 셋팅
+        //     }
+
+        //     else
+        //     {
+        //         // 현재 이미지가 빨간색 하트라면, 빈 하트로 변경
+        //         like.setAttribute("src","../img/unlike.png"); //like의 src속성의 값을 셋팅
+        //     }
+        // }
+        
+
+    </script>
+    </body>
+</html>

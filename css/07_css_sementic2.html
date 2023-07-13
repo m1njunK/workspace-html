@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>시멘틱 태그를 이용한 레이아웃 구성(고정형)</title>
+        <style>
+            *{margin: 0; padding: 0;}
+
+            #wrap{
+                /* 페이지의 전체적인 크기를 설정한다.
+                    가로 : 980px
+                    margin : 상하는 0, 좌우는 페이지의 크기에 비례하도록 auto로 설정 */
+                width: 980px;
+                margin: 0 auto;
+            }
+
+            header{
+                background-color: pink;
+                height: 100px;
+            }
+
+            aside{
+                background-color: orange;
+                float: left;
+                width: 200px;
+                height: 600px;
+            }
+
+            main{
+                background-color: yellow;
+                width: 780px;
+                height: 600px;
+                float: left;
+            }
+
+            footer{
+                background-color: yellowgreen;
+                clear: both;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <header>헤더</header>
+            <aside>사이드메뉴</aside>
+            <main>메인화면</main>
+            <footer>푸터</footer>    
+        </div>
+    </body>
+</html>

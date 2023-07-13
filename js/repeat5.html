@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="test"></p>
+<script>
+    // DOM객체 - HTML을 자바스크립트로 인식하고, 제어 할 수 있는 객체다.
+    // HTML요소 선택
+    // 아이디 선택자, class 선택자, 태그이름 선택자
+
+    // 특정 태그 요소를 모두 선택 할 수 있는 함수 - 배열 형식을 되돌려준다.
+    // (반복문으로 하나씩 제어해야함)
+    document.getElementsByTagName('태그이름');
+
+    // 특정 ID값을 가진 요소를 선택 할 수 있는 함수 - 단독으로 하나만 가져오기 때문에
+    // HTML요소를 직접 제어가능
+    document.getElementById('아이디이름');
+
+    // 특정class값을 가진 요소를 모두 선택 할 수 있는 함수 - 배열 형식으로 될려준다.
+    // (반복문으로 하나씩 제어해야함)
+    document.getElementsByClassName('클래스이름');
+
+    // 위의 선택자들을 전부 사용가능한 함수
+    document.querySelector('css선택자'); //해당 선택자 하나만 반환해준다.
+
+    document.querySelectorAll('css선택자'); //해당 선택자를 전부 반환해준다.(배열형태로 반환)
+
+    // 대표적인 css선택자
+    // 태그 선택자 - 태그이름 ex) p, h1
+    // 아이디 선택자 - #아이디이름 ex) #firstLi, #todoList
+    // 클래스 선택자 - .클래스이름 ex) .todos , .bg-blk
+
+    // HTML요소 제어
+    let testP = document.querySelector('#test');
+    testP.innerText = "테스트 입니다.";
+    testP.style.color = 'red';
+
+</script>
+</body>
+</html>

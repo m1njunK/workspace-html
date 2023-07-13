@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 외부 스타일 시트 적용 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+            crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <title>Retrun Home; 게시글</title>
+    </head>
+    <body>
+        <!-- 헤더 -->
+        <!-- 로고,상단메뉴 -->
+        <header>
+            <div id="main_header">
+                <div id="h_top">
+                    <ul id="login_menu">
+                        <li><a href="./login.html">LOGIN</a></li>
+                        <li><a href="./join.html">JOIN</a></li>
+                    </ul>
+                </div>
+
+                <div id="h_bot">
+
+                    <div id="logo">
+                        <a href="./home.html">
+                            <span>return Home;</span>
+                        </a>
+                    </div>
+
+                    <div id="nav_menu">
+                        <ul>
+                            <li><a href="./intro.html">방탈출카페 소개</a></li>
+                            <li><a href="./home.html#intro">테마소개</a></li>
+                            <li><a href="./login.html">예약하기</a></li>
+                            <li><a href="./notice_board.html">공지사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 메인 -->
+        <main id="post_main">
+            <!-- 게시판 로고 -->
+            <section>
+                <div id="post_text">
+                    <h2>Notice</h2>
+                </div>
+            </section>
+            <!-- 게시판 메뉴 -->
+            <section>
+                <div id="post_board">
+
+                    <div id="post_title">
+                        <div class="title">
+                            <p>예약 확인 방법</p>
+                        </div>
+                    </div>
+
+                    <div id="post_info">
+                        <div>
+                            <p>작성자 : 관리자</p>
+                        </div>
+
+                        <div>
+                            작성일 : 2022-07-30
+                        </div>
+                    </div>
+
+                    <div id="post_area">
+                        <div>
+                            <p>예약화면 에서 "예약확인 및 취소" 버튼을 클릭하시고
+                                핸드폰번호를 입력하시면 확인이 됩니다.<br>
+                                핸드폰번호 입력하실때 000-0000-0000 형태로
+                                입력하셔야 됩니다.</p>
+                        </div>
+                    </div>
+
+                    <div id="comment_area">
+                        <ul class="zone">
+                            <li class="li1">댓글 : <br></li>
+                        </ul>
+                    </div>
+
+                    <div id="comment_box">
+                        <div class="comment">
+                            <span>댓글입력 :</span>
+                        </div>
+
+                        <div class="comment_input">
+                            <input type="text" id="ment">
+                            <button id="addBtn" type="button">입력</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- 푸터 -->
+        <footer>
+            <div id="home_footer">
+                <div id="foot_top">
+                    <ul>
+                        <li><a href="./notice_board.html">공지사항 </a></li>
+                        <li> |</li>
+                        <li><a href="./login.html">예약확인 </a></li>
+                        <li> |</li>
+                        <li><a href="#">제휴문의 </a></li>
+                        <li> |</li>
+                        <li><a href="#">개인정보취급방침</a></li>
+                    </ul>
+                </div>
+                <div id="foot_bot">
+                    <div>
+                        <ul>
+                            <li>COMPANY :<span> MJEnt.</span></li>
+                            <li>CEO :<span> 김민준</span></li>
+                            <li>ADDRESS :<span> 부산광역시 수영구 광안로49번길 21</span></li>
+                            <li>TEL :<span> 010-6449-1630</span></li>
+                        </ul>
+                    </div>
+                    <div id="icon">
+                        <article>
+                            <a href="#"><img src="./img/facebook.png"></a>
+                        </article>
+
+                        <article>
+                            <a href="#"><img src="./img/twitter.png"></a>
+                        </article>
+
+                        <article>
+                            <a href="#"><img src="./img/instagram.png"></a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // 게시글에 댓글을 입력하여 추가하는 함수
+            function add_comment(){
+                let new_ment = document.createElement('li');
+
+                let ment = document.body.querySelector('#ment');
+
+                let ment_list = document.querySelector('.zone');
+
+                new_ment.innerText = ment.value;
+
+                ment_list.appendChild(new_ment);
+            }
+            
+            // #addBtn 버튼에 click이벤트 추가
+            // 버튼 클릭시 댓글 추가
+            document.getElementById("addBtn").addEventListener("click",add_comment);
+        </script>
+    </body>
+</html>

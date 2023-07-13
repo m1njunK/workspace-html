@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>css레이아웃</title>
+        <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box1{
+            background-color: red;
+            width: 150px;
+            height: 150px;
+            float: right;
+        }
+
+        #box2{
+            background-color: orange;
+            width: 150px;
+            height: 150px;
+            float: left;
+        }
+
+        .items{
+            border: solid 3px black;
+            margin: 5px;
+            width: 200px;
+            height: 200px;
+            /* display: inline-block; */
+            float: left;
+        }
+
+        #box6{
+            border: solid 3px black;
+            margin: 5px;
+            width: 200px;
+            height: 200px;
+            /* display: inline-block; */
+            float: left;
+        }
+
+        .clear{
+            clear: both;
+            /* clear 속성은 앞서 사용한 float속성을 무효화 할때 사용한다.
+                left, right, both
+                left : float속성중에 left값만 무효화 해줌
+                right : float속성중에 right값만 무효화 해줌
+                both : left,right 둘다 무효화 해줌 */
+        }
+
+        #boxA, #boxB, #boxC, #boxD{
+            width: 80px;
+            height: 80px;
+        }
+
+        #boxA{ background-color: red; }
+        #boxB{ background-color: blue;
+            /* position속성 relative로 지정했을 경우 
+                현재 위치를 기준으로 박스를 이동(배치) 시킬수 있다.*/
+            position: relative;
+            /* 방향속성 : 해당 방향으로부터 원하는 만큼 요소를 배치 시킬때 사용
+                상하 중에서 하나만 선택하거나, 좌우 중에서 하나만 선택하여
+                사용하는 경우가 많다.
+                ex) left,top 을 같이 설정
+                    bottom,right 을 같이 설정
+                    top 만 설정
+                    right 만 설정 */
+            top: 30px;
+            left: 30px;
+            /* bottom: ;
+            right: ; */
+        }
+        #boxC{ 
+            background-color: green;
+            /* position을 absolute로 설정했을때 박스위치 지정
+                부모태그를 기준으로 배치해준다. */
+            position: absolute;
+            top: 30px;
+            right: 30px; 
+        }
+        #boxD{
+            background-color: pink;
+            /* 보여지는 화면을 기준으로 위치를 고정 */
+            position: fixed;
+            top: 40px;
+            left: 50px;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>float 속성 : 요소의 배치위치를 정하는 속성</h1>
+        <h3>요소를 왼쪽이나 오른쪽에 떠 있게 만듦</h3>
+        <div id="box1">박스1</div>
+        <div id="box2">박스2</div>
+        <div style="clear:both">float속성을 무효화 시키는 속성 : clear속성</div>
+
+        <h3>float속성을 이용한 수평배치 연습하기</h3>
+        <div class="items">박스1</div>
+        <div class="items">박스2</div>
+        <div class="items">박스3</div>
+        <div class="clear"></div>
+        <div class="items">박스4</div>
+        <div class="items">박스5</div>
+        <div id="box6">박스6</div>
+
+        <!-- position 속성 실습 -->
+        <div class="clear"></div>
+        <h3>웹 문서 안에 요소들을 배치하기위한 속성 : position속성</h3>
+        <div id="boxA">A</div>
+        <div id="boxB">B</div>
+        <div id="boxC">C</div>
+        <div id="boxD">D</div>
+    </body>
+</html>

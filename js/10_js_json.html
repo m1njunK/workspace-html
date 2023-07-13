@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JSON 데이터 포맷</h1>
+    <h3>JavaScript Object Notation</h3>
+
+    <ul>
+        <li>사람이 읽을 수 있는 텍스트 기반의 데이터 교환 표준</li>
+        <li>자바스크립트의 객체 표기법을 따른다.</li>
+        <!-- { id : 'jun', name : '김민준', today : 0410 } -->
+        <li>사람과 기계가 모두 읽기 편하도록 고안되었다.</li>
+        <li>프로그래밍언어와 운영체제에 독립적이다.</li>
+    </ul>
+
+    <h3>JSON의 구조</h3>
+    <ul>
+        <li>이름(key)과 값(value)의 쌍으로 이루어져있다.</li>
+        <li>데이터의 구분은 ,(쉼표)로 한다.</li>
+        <li>객체(object)는 {}(중괄호)로 둘러 쌓아 표현한다.</li>
+        <li>배열(array)은 [](대괄호)로 둘러 쌓아 표현한다.</li>
+        <li>key값은 문자열로 작성</li>
+    </ul>
+    <p>
+        문법 : <br>
+        { <br>
+            "데이터이름" : 값 <br>
+            "데이터이름2" : 값, <br> 
+        }
+    </p>
+
+    <p id="json"></p>
+    <p id="js"></p>
+
+    <script>
+        // json데이터 실습
+
+        // js의 객체 표기법에 따라 데이터를 작성
+        // 데이터 항목
+        // name에 식빵, family에 웰시코기, age는 1, weight는 2.14
+        let dog = {
+            name : "식빵",
+            family : "웰시코기",
+            age : 1,
+            weight : 2.14
+        }
+        console.log(dog);
+
+        // 위에서 생성한 dog변수에 저장된 데이터들을
+        // json포맷으로 변환하여 jsonDog라는 변수에 저장하고,
+        // let jsonDog = { 'name':'식빵', 
+        //                 'family':'웰시코기',
+        //                 'age':1,
+        //                 'weight':2.14
+        //                 }
+        // console.log로 출력
+        // console.log(jsonDog);
+
+        // 함수를 이용하여 데이터 타입 변환 : JS객체 -> JSON객체로 변환
+        let jsonDog = JSON.stringify(dog);
+        console.log(jsonDog);
+        
+        // 함수를 이용하여 데이터 타입 변환 : JSON -> JS객체로 변환
+        let jsDog = JSON.parse(jsonDog);
+        console.log(jsDog);
+
+        // JSON데이터와 JS의 객체 비교
+        // dom제어를 활용한 비교
+        document.getElementById("json").innerText = jsonDog;
+        document.getElementById("js").innerText = jsDog;
+
+        // json데이터도 js의 객체와 마찬가지로 ~.데이터이름 의 형태로 특정 데이터를 사용 가능
+        console.log(jsDog.name);
+        console.log(jsonDog.name); //stringify 함수를 사용하여 객체 전체가 문자열화 되어서 undefined되었음.
+    </script>
+</body>
+</html>

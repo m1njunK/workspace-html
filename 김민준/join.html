@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <link rel="stylesheet" type="text/css" href="./join_style.css">
+        <title>소민터 : 회원가입</title>
+    </head>
+    <body>
+        <header>
+
+            <div id="top">
+                <ul class="top_menu">
+                    <li><a href="./login.html">로그인</a></li>
+                    <li><a href="./join.html">회원가입</a></li>
+                </ul>
+            </div>
+
+            <div id="bottom">
+                <a href="./index.html" id="logo_img"><img src="./img/rogo.png"></a>
+                <h1 id="title1"><a href="./index.html">소민터</a></h1>
+
+                <h4 id="title2">소방청<br>소방민원센터</h4>
+
+                <ul id="main_menu">
+                    <li><a href=#>민원안내</a></li>
+                    <li><a href="#">민원신청</a></li>
+                    <li><a href="./library.html">자료마당</a></li>
+                    <li><a href="./intro.html">청장소개</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <main>
+            <div id="join_tittle"><h1>회원가입</h1></div>
+
+
+            <form action="#" method="get">
+
+
+                <div id=join_box>
+                    <ul class="join_form">
+                        <li><span>아이디</span> <input type="text" name="ID"></li>
+                        <li><span>비밀번호</span> <input type="password" name="PW"></li>
+                        <li><span>이 름</span> <input type="text" name="name"></li>
+                        <li><span>생년월일</span> <input type="datetime-local"
+                                name="birth"></li>
+                        <li>
+                            <span>전화번호</span>
+                            <select>
+                                <option>통신사</option>
+                                <option>KT</option>
+                                <option>SKT</option>
+                                <option>LG U+</option>
+                                <option>기타</option>
+                            </select>
+                            <input type="text" name="phone">
+                        </li>
+                        <li>
+                            <span>이메일</span><input type="text" name="mail_1">@
+                            <select name="mail_2">
+                                <option>선택</option>
+                                <option>naver.com</option>
+                                <option>hanmail.net</option>
+                                <option>gamil.com</option>
+                                <option>직접입력</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="join_btn">
+                    <input type="submit" value="회원가입">
+                    <a href="./index.html">가입취소</a>
+                </div>
+
+
+            </form>
+        </main>
+        <footer>
+            <div id="foot_top">
+                <ul>
+                    <li><a href="#">이용안내</a></li>
+                    <li><a href="#">저작권보호정책</a></li>
+                    <li id="red"><a href="#">개인정보처리방침</a></li>
+                </ul>
+            </div>
+
+            <div id="foot_bot">
+                <ul>
+                    <li>30128 세종특별자치시 정부2청사로 13 (나성동)</li>
+                    <li>소민터 시스템 기술 관련 문의 (평일 09~18시)</li>
+                    <li>COPYRIGHT(C) Ministry of Public Safety and
+                        Security. All rights reserved.</li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

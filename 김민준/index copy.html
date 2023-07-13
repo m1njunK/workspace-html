@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>소방민원센터</title>
+        <!-- 외부 스타일 시트 적용 -->
+        <link rel="stylesheet" type="text/css" href="./style.css">
+    </head>
+    
+    <body>
+        <header>
+            <div id="top">
+                <ul class="top_menu">
+                    <li><a href="./login.html">로그인</a></li>
+                    <li><a href="./join.html">회원가입</a></li>
+                </ul>
+            </div>
+
+            <div id="bottom">
+                <a href="./index.html" id="logo_img"><img src="./img/rogo.png"></a>
+
+                <h1 id="title1"><a href="./index.html">소민터</a></h1>
+
+                <h4 id="title2">소방청<br>소방민원센터</h4>
+
+                <ul id="main_menu">
+                    <li><a href=#>민원안내</a></li>
+                    <li><a href="#">민원신청</a></li>
+                    <li><a href="./library.html">자료마당</a></li>
+                    <li><a href="./intro.html">청장소개</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <main>
+            <section id="main_text">
+                <h1>모두의 작은 관심이 안전하고 행복한 내일을 만듭니다.</h1>
+            </section>
+
+            <div id="section1">
+            <section id="left_content">
+
+                <a href="#"> <article id="cont1">
+                    <ul class="cont">
+                        <li class="l1"><img src="./img/main_icon1.png"></li>
+                        <li class="l2">소방시설 자체점검</li>
+                        <li class="l3">안전한 소방시설운용</li>
+                    </ul>
+                </article> </a>
+
+                <a href="#"> <article id="cont2">
+                    <ul class="cont">
+                        <li class="l1"><img src="./img/main_icon2.png"></li>
+                        <li class="l2">소방안전관리자 선임 신고</li>
+                        <li class="l3">투명한 소방관리의 책임감</li>
+                    </ul>
+                </article> </a>
+
+                <br>
+
+                <a href="./join.html"> <article id="cont3">
+                    <ul class="cont">
+                        <li class="l1"><img src="./img/main_icon3.png"></li>
+                        <li class="l2">회원가입</li>
+                        <li class="l3">소민터 회원이 되어주세요</li>
+                    </ul>
+                </article> </a>
+
+                <a href="#"> <article id="cont4">
+                    <ul class="cont">
+                        <li class="l1"><img src="./img/main_icon4.png"></li>
+                        <li class="l2">나의 민원</li>
+                        <li class="l3">내가 신청한 민원은 어떻게?</li>
+                    </ul>
+                </article> </a>
+
+            </section>
+        </div>
+        <div id="section2">
+            <section id="right_content">
+                <a href="#"> <article id="cont5">
+                    <ul class="cont">
+                        <h2>공지사항</h2>
+                        <li>점검인력 배치통보 기간 위반시 업무처리 방법</li>
+                        <li>지원하지 않는 브라우저 입니다 관련</li>
+                        <li>소방민원센터 작동/종합점검 법령서식 변경 안내</li>
+                        <li>소방시설법령 개정 시행 관련 주요 질의회신(Q&A) 입니다.</li>
+                        <li>배치확인서 불러오기 서비스 점검 안내</li>
+                    </ul>
+                </article> </a>
+
+                <br>
+
+                <a href="./library.html"> <article id="cont5">
+                    <ul class="cont">
+                        <h2>자료실</h2>
+                        <li>소방시설등의 자체점검 결과 이행계획서, 이행완료보고서</li>
+                        <li>소방시설등 점검결과보고서 제출용 위임장</li>
+                        <li>소방시설등(종합정밀,작동기능)점검표, 점검결과보고서 양식</li>
+                        <li>소방안전관리자,보조자 선임신고서</li>
+                        <li>디지털원패스 사용방법</li>
+                    </ul>
+                </article> </a>
+            </section>
+        </div>
+        </main>
+
+        <footer>
+            <div id="foot_top">
+                <ul>
+                    <li><a href="#">이용안내</a></li>
+                    <li><a href="#">저작권보호정책</a></li>
+                    <li id="red"><a href="#">개인정보처리방침</a></li> 
+                </ul>
+            </div>
+
+            <div id="foot_bot">
+                <ul>
+                    <li>30128 세종특별자치시 정부2청사로 13 (나성동)</li>
+                    <li>소민터 시스템 기술 관련 문의 (평일 09~18시)</li>
+                    <li>COPYRIGHT(C) Ministry of Public Safety and
+                        Security. All rights reserved.</li>
+                </ul>
+            </div>
+        </footer>
+
+        <script>
+            let like = document.createElement('img');
+            like.setAttribute('src','../img/unlike.png');
+            like.setAttribute('id','Like');
+            like.setAttribute('alt','좋아요');
+            like.setAttribute('onclick','likeBtn("#Like")');
+            let header_bot = document.getElementById('bottom');
+
+            header_bot.appendChild(like);
+            
+            like.style.width = '50px';
+            like.style.marginLeft = '200px';
+
+            function likeBtn(likee){
+                let likeImg = document.querySelector(likee);
+                console.log(likeImg);
+
+                likee = likeImg.getAttribute('src');
+
+                if(likee == '../img/unlike.png')
+                {
+                    likeImg.setAttribute('src','../img/like.png');
+                }
+                else
+                {
+                    likeImg.setAttribute('src','../img/unlike.png');
+                }
+            }
+
+        </script>
+    </body>
+</html>
+
+
+<!-- 보완필요 내용!!
+    반응형
+    -푸터부분 정렬 일자로
+    -배경화면!! repeat -> 변경
+    -청장소개 이미지 잘림
+
+    -각 페이지별 하단 사이즈 ㅠㅡㅠ
+
+    기본웹
+    -cont5 article(자료실 부분) -> 글자 잘림!! 
+-->
